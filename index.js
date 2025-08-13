@@ -1,9 +1,9 @@
 // i18n dictionnaires
 const dict = {
     pt: {
-        brand: "Subcontratada XYZ",
+        brand: "J&F SILVA",
         "nav.about":"Sobre","nav.services":"Serviços","nav.portfolio":"Referências","nav.partners":"Parceiros","nav.contact":"Contato","nav.careers":"Trabalhe Conosco","nav.cta":"Pedir um orçamento",
-        "hero.kicker":"Subcontratação • Cofragem • Armaduras","hero.title":"Engenharia que gera resultados e entrega qualidade","hero.lead":"Somos uma empresa subcontratada com <strong>200+ profissionais</strong> dedicada a estruturas de betão, cofragem e armaduras. Atendemos empreiteiros gerais com agilidade, segurança e um custo competitivo.","hero.cta":"Pedir um orçamento","hero.secondary":"Ver projetos",
+        "hero.kicker":"Subcontratação • Cofragem • Armaduras","hero.title":"Engenharia que gera resultados e entrega qualidade","hero.lead":"Somos uma empresa J&F SILVA com <strong>200+ profissionais</strong> dedicada a estruturas de betão, cofragem e armaduras. Atendemos empreiteiros gerais com agilidade, segurança e um custo competitivo.","hero.cta":"Pedir um orçamento","hero.secondary":"Ver projetos",
         "stats.people":"Profissionais","stats.years":"Anos de experiência","stats.jobs":"Obras entregues",
         "about.title":"Sobre nós","about.desc":"Um parceiro de confiança para os seus projetos de construção. Contamos com equipes qualificadas, segurança em primeiro lugar e cumprimento rigoroso dos prazos.","about.card1.title":"Especialistas em estruturas","about.card1.text":"Execução de cofragem e armaduras, controle de cobrimento e garantia da qualidade do betão.","about.card2.title":"Produtividade e agilidade","about.card2.text":"Equipes dimensionadas para objetivos ambiciosos, reduzindo atrasos e custos indiretos.","about.card3.title":"Segurança no trabalho","about.card3.text":"Procedimentos e EPIs alinhados aos mais altos padrões. Briefings diários e inspeções de cofragem.",
         "services.title":"Serviços","services.desc":"Do planeamento à execução, fornecemos equipes completas ou reforço especializado.","services.card1.title":"Cofragem & Descofragem","services.card1.text":"Montagem modular para pilares, vigas, lajes e paredes. Reutilização otimizada dos painéis e escoramento.","services.card2.title":"Armaduras & Ferragens","services.card2.text":"Corte, dobragem e posicionamento com espaçadores; controle de diâmetros, sobreposições e ancoragens.","services.card3.title":"Lançamento de Betão","services.card3.text":"Planejamento das janelas de vazamento, cura e controle de juntas de concretagem. Ensaios e rastreabilidade.","services.card4.title":"Gestão de obra","services.card4.text":"Diários de obra, medições, briefings de segurança e relatórios semanais com indicadores de avanço.","services.card5.title":"Orçamentação & Medições","services.card5.text":"Levantamento de quantidades, cronogramas e plano de recursos.","services.card6.title":"Qualidade & Certificação","services.card6.text":"Planos de segurança, checklists de cofragem e inspeções de conformidade.",
@@ -60,7 +60,7 @@ function setLang(lang){
         }
     });
     const titles = {
-        pt: 'Subcontratada — Engenharia que gera resultados',
+        pt: 'J&F SILVA — Engenharia que gera resultados',
         fr: 'Entreprise de sous-traitance — Ingénierie qui génère des résultats',
         en: 'Subcontractor — Engineering that delivers results',
         ja: '下請け業者 — 結果を出すエンジニアリング'
