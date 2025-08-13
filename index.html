@@ -20,8 +20,19 @@
       --shadow:0 10px 30px rgba(0,0,0,.35);
     }
 
+    /* Light mode variables */
+    :root[data-theme="light"] {
+      --bg:#ffffff;
+      --panel:#f8fafc;
+      --text:#1e293b;
+      --muted:#64748b;
+      --brand:#0ea5e9;
+      --accent:#8b5cf6;
+      --shadow:0 10px 30px rgba(0,0,0,.1);
+    }
+
     html{scroll-behavior:smooth}
-    body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--text); background: radial-gradient(1200px 600px at 20% -20%, rgba(56,189,248,.15), transparent 70%), radial-gradient(1400px 800px at 120% 10%, rgba(167,139,250,.12), transparent 70%), var(--bg); line-height:1.6}
+    body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--text); background: radial-gradient(1200px 600px at 20% -20%, rgba(56,189,248,.15), transparent 70%), radial-gradient(1400px 800px at 120% 10%, rgba(167,139,250,.12), transparent 70%), var(--bg); line-height:1.6; transition: background 0.3s ease, color 0.3s ease}
     *, *::before, *::after{box-sizing:border-box}
     img{max-width:100%; display:block}
     a{color:inherit; text-decoration:none}
@@ -102,6 +113,65 @@
     .video-wrapper{margin-top:32px}
     .video-wrapper video{width:100%; max-width:800px; margin:0 auto; display:block}
 
+    /* Image Modal */
+    .image-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .image-modal img {
+      max-width: 95%;
+      max-height: 95%;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .image-modal .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .image-modal .close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .clickable-image {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .clickable-image:hover {
+      transform: scale(1.02);
+    }
+
     /* quotes */
     .quote{background:var(--panel); border-left:4px solid var(--brand); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
 
@@ -144,21 +214,30 @@
           <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
           <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
           <li><a href="#portfolio" data-i18n="nav.portfolio">Referências</a></li>
-          <li><a href="#depoimentos" data-i18n="nav.testimonials">Depoimentos</a></li>
+          <li><a href="#parceiros" data-i18n="nav.partners">Parceiros</a></li>
           <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
           <li><a href="#trabalhe-conosco" data-i18n="nav.careers">Trabalhe Conosco</a></li>
           <li><a class="cta" href="#contato" role="button" data-i18n="nav.cta">Pedir um orçamento</a></li>
         </ul>
       </nav>
 
-      <div class="lang" aria-label="Sélecteur de langue">
-        <label for="langSel" class="sr-only" data-i18n="lang.label">Langue</label>
-        <select id="langSel" aria-label="Changer de langue">
-          <option value="pt">Português</option>
-          <option value="fr">Français</option>
-          <option value="en">English</option>
-          <option value="ja">日本語</option>
-        </select>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" aria-label="Alternar tema" style="background: var(--panel); border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 8px; color: var(--text); cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px;">
+          <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/>
+          </svg>
+        </button>
+
+        <div class="lang" aria-label="Sélecteur de langue">
+          <label for="langSel" class="sr-only" data-i18n="lang.label">Langue</label>
+          <select id="langSel" aria-label="Changer de langue">
+            <option value="pt">Português</option>
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+          </select>
+        </div>
       </div>
     </div>
   </header>
@@ -187,7 +266,7 @@
       </div>
       <div class="hero-media" aria-hidden="true">
         <div class="hero-image">
-          <img src="./img/foto1.jpg" alt="Equipe de engenharia em obra" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.35);" />
+          <img src="./img/foto1.jpg" alt="Equipe de engenharia em obra" class="clickable-image" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.35);" />
         </div>
       </div>
     </div>
@@ -238,28 +317,32 @@
       <p class="section-desc" data-i18n="portfolio.desc">Exemples récents. Remplacez par vos réalisations réelles.</p>
       <div class="grid">
         <figure class="tile">
-          <img src="./img/foto2.jpg" alt="Projeto Residencial Atlas" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+          <img src="./img/foto2.jpg" alt="Projeto Residencial Atlas" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
           <figcaption class="cap" data-i18n="portfolio.item1">Résidentiel Atlas — 12 000 m²</figcaption>
         </figure>
         <figure class="tile">
-          <img src="./img/foto3.jpg" alt="Projeto Ponte Leste" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+          <img src="./img/foto3.jpg" alt="Projeto Ponte Leste" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
           <figcaption class="cap" data-i18n="portfolio.item2">Pont Est — portées de 40 m</figcaption>
         </figure>
         <figure class="tile">
-          <img src="./img/foto4.jpg" alt="Projeto Parque Industrial Beta" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+          <img src="./img/foto4.jpg" alt="Projeto Parque Industrial Beta" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
           <figcaption class="cap" data-i18n="portfolio.item3">Parc Industriel Beta</figcaption>
         </figure>
         <figure class="tile">
-          <img src="./img/foto5.jpg" alt="Projeto Hospital Central" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
-          <figcaption class="cap" data-i18n="portfolio.item4">Hôpital Central — phase 2</figcaption>
+          <img src="./img/foto5.jpg" alt="Projeto Hospital Central" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+          <figcaption class="cap" data-i18n="portfolio.item1">Hôpital Central — phase 2</figcaption>
         </figure>
         <figure class="tile">
-          <img src="./img/foto6.jpg" alt="Projeto Torre Norte" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+          <img src="./img/foto6.jpg" alt="Projeto Torre Norte" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
           <figcaption class="cap" data-i18n="portfolio.item5">Tour Nord — 22 étages</figcaption>
         </figure>
         <figure class="tile">
-          <img src="./img/foto1.jpg" alt="Projeto Shopping Riviera" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+          <img src="./img/foto1.jpg" alt="Projeto Shopping Riviera" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
           <figcaption class="cap" data-i18n="portfolio.item6">Centre commercial Riviera</figcaption>
+        </figure>
+        <figure class="tile">
+          <img src="./img/foto7.jpg" alt="Serviço Finalizado - Resultado" class="clickable-image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" />
+          <figcaption class="cap" data-i18n="portfolio.item7">Serviço Finalizado - Resultado</figcaption>
         </figure>
       </div>
     </div>
@@ -278,16 +361,174 @@
     </div>
   </section>
 
-  <section id="depoimentos">
+  <section id="parceiros" style="background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(167,139,250,.12)); border-top: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); padding: 80px 0;">
     <div class="container">
-      <h2 class="section-title" data-i18n="testimonials.title">Témoignages</h2>
-      <div class="cards">
-        <blockquote class="quote"><p data-i18n="testimonials.q1">« Ponctualité et sécurité au-dessus des standards. Fenêtre de coulage respectée. »</p><footer data-i18n="testimonials.a1">— Anne M., Ingénieure de chantier</footer></blockquote>
-        <blockquote class="quote"><p data-i18n="testimonials.q2">« Équipe très bien formée au coffrage modulaire. Livraison propre et rapide. »</p><footer data-i18n="testimonials.a2">— João P., Directeur technique</footer></blockquote>
-        <blockquote class="quote"><p data-i18n="testimonials.q3">« Rapports hebdomadaires clairs. Excellente transparence des coûts et de la productivité. »</p><footer data-i18n="testimonials.a3">— Marc D., Chef de projet</footer></blockquote>
+      <div style="text-align: center; margin-bottom: 64px;">
+        <h2 class="section-title" style="font-size: clamp(2rem, 1.5rem + 2vw, 3rem); margin-bottom: 24px; background: linear-gradient(135deg, var(--brand), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          Parceiros de Confiança
+        </h2>
+        <p class="section-desc" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; color: var(--text); line-height: 1.7;">
+          Trabalhamos com <strong>empresas líderes</strong> em construção e engenharia em toda a Europa, 
+          <br>entregando <strong>qualidade e confiabilidade</strong> em cada projeto.
+        </p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 32px;">
+        <!-- OJP B.V. - Holanda -->
+        <div style="background: var(--panel); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,.2); position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, var(--brand), var(--accent)); color: #0b1020; padding: 8px 16px; border-radius: 0 20px 0 16px; font-size: 0.8rem; font-weight: 700;">
+            HOLANDA
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--brand), var(--accent)); border-radius: 12px; display: grid; place-items: center; color: #0b1020; font-weight: 700; font-size: 1.2rem;">
+              OJP
+            </div>
+            <div>
+              <h3 style="margin: 0; color: var(--text); font-size: 1.3rem;">OJP B.V.</h3>
+              <p style="margin: 4px 0 0; color: var(--muted); font-size: 0.9rem;">Construção & Engenharia</p>
+            </div>
+          </div>
+          <p style="color: var(--muted); margin: 0; line-height: 1.6;">
+            <strong>HYCO 5</strong> - Projeto de infraestrutura hidráulica e construção civil de alta complexidade.
+          </p>
+        </div>
+
+        <!-- ACCIONA CONSTRUCCIÓN - Espanha -->
+        <div style="background: var(--panel); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,.2); position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #ff6b6b, #feca57); color: #0b1020; padding: 8px 16px; border-radius: 0 20px 0 16px; font-size: 0.8rem; font-weight: 700;">
+            ESPANHA
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #ff6b6b, #feca57); border-radius: 12px; display: grid; place-items: center; color: #0b1020; font-weight: 700; font-size: 1.2rem;">
+              AC
+            </div>
+            <div>
+              <h3 style="margin: 0; color: var(--text); font-size: 1.3rem;">ACCIONA CONSTRUCCIÓN</h3>
+              <p style="margin: 4px 0 0; color: var(--muted); font-size: 0.9rem;">Infraestrutura & Portos</p>
+            </div>
+          </div>
+          <p style="color: var(--muted); margin: 0; line-height: 1.6;">
+            <strong>C5038</strong> - Fabricação de cajões para o Porto de Valência, obra de grande envergadura.
+          </p>
+        </div>
+
+        <!-- BV OJP Construct - Bélgica -->
+        <div style="background: var(--panel); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,.2); position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #a8e6cf, #dcedc1); color: #0b1020; padding: 8px 16px; border-radius: 0 20px 0 16px; font-size: 0.8rem; font-weight: 700;">
+            BÉLGICA
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #a8e6cf, #dcedc1); border-radius: 12px; display: grid; place-items: center; color: #0b1020; font-weight: 700; font-size: 1.2rem;">
+              BV
+            </div>
+            <div>
+              <h3 style="margin: 0; color: var(--text); font-size: 1.3rem;">BV OJP Construct</h3>
+              <p style="margin: 4px 0 0; color: var(--muted); font-size: 0.9rem;">Construção Civil</p>
+            </div>
+          </div>
+          <p style="color: var(--muted); margin: 0; line-height: 1.6;">
+            <strong>3 obras</strong> realizadas com sucesso, demonstrando nossa capacidade de entrega consistente.
+          </p>
+        </div>
+
+        <!-- BVBA EDIVALOR - Bélgica -->
+        <div style="background: var(--panel); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,.2); position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #ff9ff3, #f368e0); color: #0b1020; padding: 8px 16px; border-radius: 0 20px 0 16px; font-size: 0.8rem; font-weight: 700;">
+            BÉLGICA
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #ff9ff3, #f368e0); border-radius: 12px; display: grid; place-items: center; color: #0b1020; font-weight: 700; font-size: 1.2rem;">
+              ED
+            </div>
+            <div>
+              <h3 style="margin: 0; color: var(--text); font-size: 1.3rem;">BVBA EDIVALOR</h3>
+              <p style="margin: 4px 0 0; color: var(--muted); font-size: 0.9rem;">Desenvolvimento & Construção</p>
+            </div>
+          </div>
+          <p style="color: var(--muted); margin: 0; line-height: 1.6;">
+            <strong>4 obras</strong> entregues com excelência, consolidando nossa parceria de longa data.
+          </p>
+        </div>
+
+        <!-- O.J.P. - Portugal -->
+        <div style="background: var(--panel); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,.2); position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #ff7675, #fd79a8); color: #0b1020; padding: 8px 16px; border-radius: 0 20px 0 16px; font-size: 0.8rem; font-weight: 700;">
+            PORTUGAL
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #ff7675, #fd79a8); border-radius: 12px; display: grid; place-items: center; color: #0b1020; font-weight: 700; font-size: 1.2rem;">
+              OJP
+            </div>
+            <div>
+              <h3 style="margin: 0; color: var(--text); font-size: 1.3rem;">O.J.P. - SOCIEDADE DE CONSTRUÇÕES, LDA</h3>
+              <p style="margin: 4px 0 0; color: var(--muted); font-size: 0.9rem;">Construção Nacional</p>
+            </div>
+          </div>
+          <p style="color: var(--muted); margin: 0; line-height: 1.6;">
+            <strong>16 obras</strong> realizadas em Portugal, nossa parceria mais sólida e duradoura.
+          </p>
+        </div>
+
+        <!-- FANTASIABSTRATA - Portugal -->
+        <div style="background: var(--panel); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,.2); position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #74b9ff, #0984e3); color: #0b1020; padding: 8px 16px; border-radius: 0 20px 0 16px; font-size: 0.8rem; font-weight: 700;">
+            PORTUGAL
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #74b9ff, #0984e3); border-radius: 12px; display: grid; place-items: center; color: #0b1020; font-weight: 700; font-size: 1.2rem;">
+              FB
+            </div>
+            <div>
+              <h3 style="margin: 0; color: var(--text); font-size: 1.3rem;">FANTASIABSTRATA, LDA</h3>
+              <p style="margin: 4px 0 0; color: var(--muted); font-size: 0.9rem;">Projetos Especiais</p>
+            </div>
+          </div>
+          <p style="color: var(--muted); margin: 0; line-height: 1.6;">
+            <strong>BACIA OCEÂNICA, HUB, TECNIFEIRA</strong> - Projetos inovadores de infraestrutura.
+          </p>
+        </div>
+
+        <!-- Serviço Finalizado - Exemplo -->
+        <div style="background: var(--panel); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,.2); position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; right: 0; background: linear-gradient(135deg, #00b894, #00cec9); color: #0b1020; padding: 8px 16px; border-radius: 0 20px 0 16px; font-size: 0.8rem; font-weight: 700;">
+            FINALIZADO
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #00b894, #00cec9); border-radius: 12px; display: grid; place-items: center; color: #0b1020; font-weight: 700; font-size: 1.2rem;">
+              ✓
+            </div>
+            <div>
+              <h3 style="margin: 0; color: var(--text); font-size: 1.3rem;">Serviço Completado</h3>
+              <p style="margin: 4px 0 0; color: var(--muted); font-size: 0.9rem;">Resultado Final</p>
+            </div>
+          </div>
+          <p style="color: var(--muted); margin: 0; line-height: 1.6;">
+            <strong>Antes e Depois</strong> - Veja como ficou o serviço após finalizado.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <div style="display: inline-flex; align-items: center; gap: 16px; background: linear-gradient(135deg, rgba(56,189,248,.15), rgba(167,139,250,.15)); border: 2px solid rgba(255,255,255,.2); border-radius: 20px; padding: 24px 32px; box-shadow: 0 8px 32px rgba(0,0,0,.2);">
+          <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--brand), var(--accent)); border-radius: 50%; display: grid; place-items: center; color: #0b1020;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div style="text-align: left;">
+            <div style="color: var(--text); font-weight: 700; font-size: 1.1rem; margin-bottom: 4px;">
+              Parceiros em 3 países • Mais de 25 projetos entregues
+            </div>
+            <div style="color: var(--muted); font-size: 0.9rem;">
+              Experiência comprovada em toda a Europa
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+
 
   <section id="contato">
     <div class="container">
@@ -411,6 +652,12 @@
     </div>
   </footer>
 
+  <!-- Image Modal -->
+  <div id="image-modal" class="image-modal" aria-label="Visualizar imagem em tela cheia">
+    <button class="close-btn" aria-label="Fechar visualização">&times;</button>
+    <img id="modal-image" src="" alt="Imagem ampliada" />
+  </div>
+
   <div class="wa" aria-label="Contact via WhatsApp">
     <!-- Substitua 000 com seu número (apenas dígitos), ex: 33612345678 -->
     <a href="https://wa.me/000000000000" target="_blank" rel="noopener" aria-label="Ouvrir WhatsApp">
@@ -423,7 +670,7 @@
     const dict = {
       pt: {
         brand: "Subcontratada XYZ",
-        "nav.about":"Sobre","nav.services":"Serviços","nav.portfolio":"Referências","nav.testimonials":"Depoimentos","nav.contact":"Contato","nav.careers":"Trabalhe Conosco","nav.cta":"Pedir um orçamento",
+        "nav.about":"Sobre","nav.services":"Serviços","nav.portfolio":"Referências","nav.partners":"Parceiros","nav.contact":"Contato","nav.careers":"Trabalhe Conosco","nav.cta":"Pedir um orçamento",
         "hero.kicker":"Subcontratação • Cofragem • Armaduras","hero.title":"Engenharia que gera resultados e entrega qualidade","hero.lead":"Somos uma empresa subcontratada com <strong>200+ profissionais</strong> dedicada a estruturas de betão, cofragem e armaduras. Atendemos empreiteiros gerais com agilidade, segurança e um custo competitivo.","hero.cta":"Pedir um orçamento","hero.secondary":"Ver projetos",
         "stats.people":"Profissionais","stats.years":"Anos de experiência","stats.jobs":"Obras entregues",
         "about.title":"Sobre nós","about.desc":"Um parceiro de confiança para os seus projetos de construção. Contamos com equipes qualificadas, segurança em primeiro lugar e cumprimento rigoroso dos prazos.",
@@ -437,7 +684,7 @@
         "services.card4.title":"Gestão de obra","services.card4.text":"Diários de obra, medições, briefings de segurança e relatórios semanais com indicadores de avanço.",
         "services.card5.title":"Orçamentação & Medições","services.card5.text":"Levantamento de quantidades, cronogramas e plano de recursos.",
         "services.card6.title":"Qualidade & Certificação","services.card6.text":"Planos de segurança, checklists de cofragem e inspeções de conformidade.",
-        "portfolio.title":"Nossas Referências","portfolio.desc":"Conheça alguns dos nossos projetos mais recentes.","portfolio.item1":"Residencial Atlas — 12.000 m²","portfolio.item2":"Ponte Leste — vãos de 40 m","portfolio.item3":"Parque Industrial Beta","portfolio.item4":"Hospital Central — fase 2","portfolio.item5":"Torre Norte — 22 andares","portfolio.item6":"Shopping Riviera",
+        "portfolio.title":"Nossas Referências","portfolio.desc":"Conheça alguns dos nossos projetos mais recentes.","portfolio.item1":"","portfolio.item2":"","portfolio.item3":"","portfolio.item4":"Hospital Central — fase 2","portfolio.item5":"","portfolio.item6":"",
         "video.title":"Nossa equipe em ação", "video.desc":"Veja a qualidade e a agilidade das nossas operações no canteiro de obras.",
         "testimonials.title":"Depoimentos","testimonials.q1":"« Pontualidade e segurança acima dos padrões. Prazo de concretagem respeitado. »","testimonials.a1":"— Ana M., Engenheira de obra","testimonials.q2":"« Equipe muito bem treinada em cofragem modular. Entrega limpa e rápida. »","testimonials.a2":"— João P., Diretor técnico","testimonials.q3":"« Relatórios semanais claros. Excelente transparência de custos e produtividade. »","testimonials.a3":"— Marco D., Gestor de projetos",
         "contact.title":"Fale conosco","contact.desc":"Preencha o formulário e retornaremos hoje mesmo. Ou fale conosco via WhatsApp.","form.name":"Nome","form.company":"Empresa","form.email":"Email","form.phone":"Telefone","form.subject":"Assunto","form.opt.quote":"Orçamento","form.opt.partner":"Parceria","form.opt.other":"Outros","form.message":"Mensagem","form.send":"Enviar","form.privacy":"Ao enviar, você concorda com nossa política de privacidade.",
@@ -445,7 +692,7 @@
       },
       fr: {
         brand: "Sous-traitant XYZ",
-        "nav.about":"À propos","nav.services":"Services","nav.portfolio":"Références","nav.testimonials":"Témoignages","nav.contact":"Contact","nav.careers":"Carrières","nav.cta":"Demander un devis",
+        "nav.about":"À propos","nav.services":"Services","nav.portfolio":"Références","nav.partners":"Partenaires","nav.contact":"Contact","nav.careers":"Carrières","nav.cta":"Demander un devis",
         "hero.kicker":"Sous-traitance • Coffrage • Armatures","hero.title":"Ingénierie qui génère des contrats et livre la qualité","hero.lead":"Nous sommes une entreprise de sous-traitance avec <strong>200+ professionnels</strong> dédiée aux structures en béton, coffrage et armatures. Nous servons des entreprises générales avec agilité, sécurité et un coût compétitif.","hero.cta":"Demander un devis","hero.secondary":"Voir les projets","hero.mock1":"Image / Photo d'équipe sur site","hero.mock2":"Points forts / Certifications",
         "stats.people":"Professionnels","stats.years":"Années d'expérience","stats.jobs":"Chantiers livrés",
         "about.title":"À propos de nous","about.desc":"Partenaire de confiance pour les travaux de génie civil. Équipes formées, sécurité d'abord et délais respectés. Conformité aux Eurocodes et meilleures pratiques.",
@@ -468,7 +715,7 @@
       },
       en: {
         brand: "Subcontractor XYZ",
-        "nav.about":"About","nav.services":"Services","nav.portfolio":"Projects","nav.testimonials":"Testimonials","nav.contact":"Contact","nav.careers":"Careers","nav.cta":"Request a quote",
+        "nav.about":"About","nav.services":"Services","nav.portfolio":"Projects","nav.partners":"Partners","nav.contact":"Contact","nav.careers":"Careers","nav.cta":"Request a quote",
         "hero.kicker":"Subcontracting • Formwork • Rebar","hero.title":"Engineering that wins contracts and delivers quality","hero.lead":"We are a subcontracting company with <strong>200+ professionals</strong> focused on concrete structures, formwork and rebar. We serve general contractors with agility, safety and competitive cost.","hero.cta":"Request a quote","hero.secondary":"See projects","hero.mock1":"Team photo / on site","hero.mock2":"Highlights / Certifications",
         "stats.people":"Professionals","stats.years":"Years of experience","stats.jobs":"Projects delivered",
         "about.title":"About us","about.desc":"Trusted partner for civil works. Trained crews, safety first and on-time delivery. Eurocodes compliant.",
@@ -491,7 +738,7 @@
       },
       ja: {
         brand: "下請け業者 XYZ",
-        "nav.about":"会社概要","nav.services":"サービス","nav.portfolio":"実績","nav.testimonials":"お客様の声","nav.contact":"お問い合わせ","nav.careers":"採用情報","nav.cta":"見積もり依頼",
+        "nav.about":"会社概要","nav.services":"サービス","nav.portfolio":"実績","nav.partners":"パートナー","nav.contact":"お問い合わせ","nav.careers":"採用情報","nav.cta":"見積もり依頼",
         "hero.kicker":"下請け • 型枠 • 鉄筋","hero.title":"契約を獲得し品質を届けるエンジニアリング","hero.lead":"私たちは <strong>200名以上</strong> のプロで構成された下請け企業です。コンクリート構造・型枠・鉄筋に特化し、ゼネコン様へ機動力と安全性、競争力のあるコストで提供します。","hero.cta":"見積もり依頼","hero.secondary":"実績を見る","hero.mock1":"現場のチーム写真","hero.mock2":"強み / 認証",
         "stats.people":"スタッフ","stats.years":"年の実績","stats.jobs":"完了プロジェクト",
         "about.title":"会社概要","about.desc":"土木工事の信頼できるパートナー。訓練されたチーム、安全第一、納期厳守。ユーロコード準拠。",
@@ -530,12 +777,87 @@
       else                 document.title = 'Entreprise de sous-traitance — Ingénierie qui génère des résultats';
     }
 
+    // Theme Toggle Functionality
+    function toggleTheme() {
+      const root = document.documentElement;
+      const themeIcon = document.getElementById('theme-icon');
+      const currentTheme = root.getAttribute('data-theme');
+      
+      if (currentTheme === 'light') {
+        root.removeAttribute('data-theme');
+        themeIcon.innerHTML = '<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/>';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        root.setAttribute('data-theme', 'light');
+        themeIcon.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
     // Init
     const yearEl = document.getElementById('year');
     if(yearEl) yearEl.textContent = new Date().getFullYear();
     const sel = document.getElementById('langSel');
     if(sel){ sel.addEventListener('change', e=> setLang(e.target.value)); }
     setLang('pt');
+
+    // Theme toggle event listener
+    const themeToggle = document.getElementById('theme-toggle');
+    if(themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      const themeIcon = document.getElementById('theme-icon');
+      if(themeIcon) {
+        themeIcon.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>';
+      }
+    }
+
+    // Image Modal Functionality
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // Add click event to all clickable images
+    document.querySelectorAll('.clickable-image').forEach(img => {
+      img.addEventListener('click', function() {
+        modalImage.src = this.src;
+        modalImage.alt = this.alt;
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+    });
+
+    // Close modal when clicking close button
+    if(closeBtn) {
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        imageModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      });
+    }
+
+    // Close modal when clicking outside the image
+    if(imageModal) {
+      imageModal.addEventListener('click', function(e) {
+        if (e.target === imageModal) {
+          imageModal.classList.remove('active');
+          document.body.style.overflow = ''; // Restore scrolling
+        }
+      });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    });
 
     // Toggle aria-expanded for accessibility
     const menuToggle = document.getElementById('menu');
