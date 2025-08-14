@@ -10,10 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    
 </head>
 <body>
 
-    <header class="main-header">
+    <header class="main-header navbar-glass">
         <div class="container nav">
             <a href="#" class="brand" aria-label="J&F SILVA">
                 <div class="brand-logo" aria-hidden="true">
@@ -30,12 +31,12 @@
 
             <nav id="primary-nav" class="main-nav" aria-label="Navegação principal">
                 <ul class="nav-list">
-                    <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
-                    <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
-                    <li><a href="#portfolio" data-i18n="nav.portfolio">Referências</a></li>
-                    <li><a href="#parceiros" data-i18n="nav.partners">Parceiros</a></li>
-                    <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
-                    <li><a href="#trabalhe-conosco" data-i18n="nav.careers">Trabalhe Conosco</a></li>
+                    <li><a href="#sobre" class="nav-link" data-i18n="nav.about">Sobre</a></li>
+                    <li><a href="#servicos" class="nav-link" data-i18n="nav.services">Serviços</a></li>
+                    <li><a href="#portfolio" class="nav-link" data-i18n="nav.portfolio">Referências</a></li>
+                    <li><a href="#parceiros" class="nav-link" data-i18n="nav.partners">Parceiros</a></li>
+                    <li><a href="#trabalhe-conosco" class="nav-link" data-i18n="nav.careers">Trabalhe Conosco</a></li>
+                    <li><a href="contatos.html" class="nav-link external">Contatos</a></li>
                 </ul>
                 
                 <div class="mobile-cta">
@@ -76,21 +77,22 @@
 
     <main>
         <section class="hero-section">
+        <div class="hero-bg"></div>
             <div class="container hero-grid">
                 <div>
                     <span class="tag kicker" data-i18n="hero.kicker">Subcontratação • Cofragem • Armaduras</span>
-                    <h1 data-i18n="hero.title">Engenharia que gera resultados e entrega qualidade</h1>
+                    <h1 class="hero-title" data-i18n="hero.title">Engenharia que gera resultados e entrega qualidade</h1>
                     <p class="lead" data-i18n="hero.lead">Somos a <span class="company-name-highlight">J&F SILVA</span>, uma empresa subcontratada com <strong>200+ profissionais</strong> dedicada a estruturas de betão, cofragem e armaduras. Atendemos empreiteiros gerais com agilidade, segurança e um custo competitivo.</p>
                     <div class="hero-actions">
-                        <a class="cta-link primary" href="#contato" role="button" data-i18n="hero.cta">
+                        <a class="cta-link primary btn-3d" href="#contato" role="button" data-i18n="hero.cta">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
           </svg>
           Pedir um orçamento
         </a>
-                        <a class="cta-link secondary" href="#portfolio" role="button" data-i18n="hero.secondary">Ver projetos</a>
+                        <a class="cta-link secondary btn-3d" href="#portfolio" role="button" data-i18n="hero.secondary">Ver projetos</a>
                     </div>
-                    <div class="stats" aria-label="Estatísticas chave">
+                                          <div class="stats reveal" aria-label="Estatísticas chave">
                         <div class="stat animate-on-scroll">
                             <strong>200+</strong><br><span class="muted" data-i18n="stats.people">Profissionais</span>
                         </div>
@@ -103,7 +105,7 @@
                     </div>
                 </div>
                 <div class="hero-media" aria-hidden="true">
-                    <div class="hero-image animate-on-scroll">
+                    <div class="hero-image reveal hover-3d">
                         <img src="./img/foto1.jpg" alt="Equipe de engenharia em obra" class="clickable-image" />
                     </div>
                 </div>
@@ -112,22 +114,22 @@
 
         <hr class="separator" />
 
-        <section id="sobre">
+        <section id="sobre" class="reveal">
             <div class="container">
                 <h2 class="section-title" data-i18n="about.title">Sobre nós</h2>
                 <p class="section-desc" data-i18n="about.desc">Um parceiro de confiança para os seus projetos de construção. Contamos com equipes qualificadas, segurança em primeiro lugar e cumprimento rigoroso dos prazos.</p>
-                <div class="cards" role="list">
-                    <article class="card animate-on-scroll" role="listitem">
+                <div class="cards cards-grid" role="list">
+                    <article class="card card-3d reveal" role="listitem">
                         <div class="icon" aria-hidden="true">🏗️</div>
                         <h3 data-i18n="about.card1.title">Especialistas em estruturas</h3>
                         <p data-i18n="about.card1.text">Execução de cofragem e armaduras, controle de cobrimento e garantia da qualidade do betão.</p>
                     </article>
-                    <article class="card animate-on-scroll" role="listitem">
+                    <article class="card card-3d reveal" role="listitem">
                         <div class="icon" aria-hidden="true">⚡</div>
                         <h3 data-i18n="about.card2.title">Produtividade e agilidade</h3>
                         <p data-i18n="about.card2.text">Equipes dimensionadas para objetivos ambiciosos, reduzindo atrasos e custos indiretos.</p>
                     </article>
-                    <article class="card animate-on-scroll" role="listitem">
+                    <article class="card card-3d reveal" role="listitem">
                         <div class="icon" aria-hidden="true">🛡️</div>
                         <h3 data-i18n="about.card3.title">Segurança no trabalho</h3>
                         <p data-i18n="about.card3.text">Procedimentos e EPIs alinhados aos mais altos padrões. Briefings diários e inspeções de cofragem.</p>
@@ -142,7 +144,7 @@
             <div class="container">
                 <h2 class="section-title" data-i18n="services.title">Serviços</h2>
                 <p class="section-desc" data-i18n="services.desc">Do planeamento à execução, fornecemos equipes completas ou reforço especializado.</p>
-                <div class="cards">
+                                  <div class="cards cards-grid">
                     <article class="card animate-on-scroll"><h3 data-i18n="services.card1.title">Cofragem & Descofragem</h3><p data-i18n="services.card1.text">Montagem modular para pilares, vigas, lajes e paredes. Reutilização otimizada dos painéis e escoramento.</p></article>
                     <article class="card animate-on-scroll"><h3 data-i18n="services.card2.title">Armaduras & Ferragens</h3><p data-i18n="services.card2.text">Corte, dobragem e posicionamento com espaçadores; controle de diâmetros, sobreposições e ancoragens.</p></article>
                     <article class="card animate-on-scroll"><h3 data-i18n="services.card3.title">Lançamento de Betão</h3><p data-i18n="services.card3.text">Planejamento das janelas de vazamento, cura e controle de juntas de concretagem. Ensaios e rastreabilidade.</p></article>
@@ -407,5 +409,6 @@
     </a>
 
     <script src="index.js"></script>
+    <script src="enhanced-ui.js"></script>
 </body>
 </html>
