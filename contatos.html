@@ -1,32 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos - JF SILVA CONSTRUÇÕES</title>
-    <meta name="description" content="Entre em contato com a JF SILVA CONSTRUÇÕES. Solicite orçamentos, parcerias ou trabalhe conosco.">
+    <title>Contact - JF SILVA CONSTRUÇÕES</title>
+    <meta name="description" content="Contactez JF SILVA CONSTRUÇÕES. Demandez des devis, des partenariats ou travaillez avec nous.">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="contatos.css">
+    <style>
+        /* Sistema de idiomas - Botão de troca */
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            background: #667eea;
+            color: white;
+        }
+
+        /* Botão Submit Melhorado */
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            min-height: 60px;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        .btn-submit:active {
+            transform: translateY(-1px) scale(0.98);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-submit:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3), 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-submit .btn-text {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+
+        .btn-submit .btn-icon {
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .btn-submit:hover .btn-icon {
+            transform: translateX(3px) scale(1.1);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .btn-submit:disabled:hover {
+            transform: none;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Estado de loading do botão */
+        .btn-submit.loading {
+            pointer-events: none;
+        }
+
+        .btn-submit.loading .btn-text {
+            opacity: 0.7;
+        }
+
+        .btn-submit.loading .btn-icon {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsividade do botão */
+        @media (max-width: 768px) {
+            .btn-submit {
+                padding: 16px 32px;
+                font-size: 1rem;
+                min-height: 56px;
+            }
+            
+            .btn-submit .btn-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn-submit {
+                padding: 14px 28px;
+                font-size: 0.95rem;
+                min-height: 52px;
+            }
+            
+            .btn-submit .btn-text {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Botão de troca de idiomas -->
+    <button class="language-toggle" onclick="toggleLanguage()">🇫🇷 FR</button>
+
     <!-- Header -->
     <header class="main-header">
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="brand">
                     <div class="brand-logo">
-                        <img src="./logo/logo10.png" alt="Logo JF SILVA CONSTRUÇÕES" />
+                        <img src="./logo/logo10.jpg" alt="Logo JF SILVA CONSTRUÇÕES" />
                     </div>
-                    <span>J&F SILVA</span>
+                    <span>JF SILVA</span>
                 </a>
                 
                 <div class="nav-links">
-                    <a href="index.html#sobre">Sobre</a>
-                    <a href="index.html#servicos">Serviços</a>
-                    <a href="index.html#portfolio">Portfólio</a>
-                    <a href="index.html#parceiros">Parceiros</a>
-                    <a href="index.html#trabalhe-conosco">Trabalhe Conosco</a>
-                    <a href="contatos.html" class="active">Contatos</a>
+                    <a href="index.html#sobre" data-i18n="nav.about">À propos</a>
+                    <a href="index.html#servicos" data-i18n="nav.services">Services</a>
+                    <a href="index.html#portfolio" data-i18n="nav.portfolio">Portfolio</a>
+                    <a href="index.html#parceiros" data-i18n="nav.partners">Partenaires</a>
+                    <a href="index.html#trabalhe-conosco" data-i18n="nav.careers">Travailler avec nous</a>
+                    <a href="contatos.html" class="active" data-i18n="nav.contact">Contact</a>
                 </div>
                 
                 <div class="mobile-cta">
@@ -34,7 +190,7 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
-                        Pedir um orçamento
+                        <span data-i18n="cta.quote">Demander un devis</span>
                     </a>
                 </div>
 
@@ -43,16 +199,8 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
-                        Pedir um orçamento
+                        <span data-i18n="cta.quote">Demander un devis</span>
                     </a>
-                    
-                    <div class="lang-selector">
-                        <select id="langSel" aria-label="Mudar idioma">
-                            <option value="pt" selected>🇧🇷 PT</option>
-                            <option value="en">🇺🇸 EN</option>
-                            <option value="fr">🇫🇷 FR</option>
-                        </select>
-                    </div>
                     
                     <button class="theme-toggle-btn" aria-label="Alternar tema">
                         <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -71,20 +219,20 @@
     <section class="contact-hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Entre em Contato</h1>
-                <p class="hero-subtitle">Estamos aqui para transformar suas ideias em realidade</p>
+                <h1 class="hero-title" data-i18n="hero.title">Contactez-nous</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Nous sommes là pour transformer vos idées en réalité</p>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number">24h</span>
-                        <span class="stat-label">Resposta</span>
+                        <span class="stat-label" data-i18n="hero.response">Réponse</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">100%</span>
-                        <span class="stat-label">Satisfação</span>
+                        <span class="stat-label" data-i18n="hero.satisfaction">Satisfaction</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">15+</span>
-                        <span class="stat-label">Anos Exp.</span>
+                        <span class="stat-label" data-i18n="hero.experience">Années d'exp.</span>
                     </div>
                 </div>
             </div>
@@ -94,51 +242,45 @@
     <!-- Contact Methods -->
     <section class="contact-methods">
         <div class="container">
-            <h2 class="section-title">Formas de Contato</h2>
+            <h2 class="section-title" data-i18n="methods.title">Moyens de contact</h2>
             <div class="methods-grid">
                 <div class="method-card">
                     <div class="method-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
                     </div>
-                    <h3>Telefone</h3>
-                    <p>+351 123 456 789</p>
-                    <a href="tel:+351123456789" class="method-btn">Ligar Agora</a>
+                    <h3 data-i18n="methods.email.title">E-mail</h3>
+                    <p data-i18n="methods.email.desc">Envoi rapide et direct</p>
+                    <a href="#contact-form" class="method-link" onclick="scrollToForm()">
+                        jfsilvaconstrucoes25@gmail.com
+                    </a>
                 </div>
 
                 <div class="method-card">
                     <div class="method-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                         </svg>
                     </div>
-                    <h3>Email</h3>
-                    <p>info@jefsilva.pt</p>
-                    <a href="mailto:info@jefsilva.pt" class="method-btn">Enviar Email</a>
+                    <h3 data-i18n="methods.phone.title">Téléphone</h3>
+                    <p data-i18n="methods.phone.desc">Appel direct et personnel</p>
+                    <a href="https://wa.me/+32471895622" target="_blank" rel="noopener" class="method-link" id="phone-button">
+                        +32 471 89 56 22
+                    </a>
                 </div>
 
                 <div class="method-card">
                     <div class="method-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path d="M19.1 17.6c-.3.1-.6.2-1 .1-.5-.1-1.1-.4-1.8-.9c-.6-.4-1.1-1-1.6-1.6c-.4-.5-.7-1.1-.9-1.6c-.2-.5-.2-.9-.1-1.2c.1-.3.3-.5.6-.7c.2-.2.5-.5.7-.8c-.2-.3-.3-.6-.3-.9s-.1-.6-.3-.9c-.1-.3-.3-.5-.6-.7c-.2-.2-.5-.3-.8-.4c-.3-.1-.6-.1-.9 0c-.6.1-1.2.5-1.7 1.1c-.5.6-.8 1.3-.9 2c-.1.8 0 1.6.3 2.4c.3.8.7 1.6 1.3 2.3c.9 1.2 2 2.3 3.4 3.1c1 .6 2 .9 2.9 1.1c1 .2 1.9.1 2.7-.2c.7-.3 1.3-.7 1.8-1.2c.5-.5.8-1.1.9-1.7c.1-.6 0-1.2-.3-1.8c-.2-.3-.4-.6-.8-.7c-.3-.1-.7-.1-1 0c-.3.2-.6.4-.8.7c-.2.4-.5.8-.7 1.2c-.1.2-.3.3-.6.4z"/>
                         </svg>
                     </div>
-                    <h3>Endereço</h3>
-                    <p>Rua das Construções, 123<br>Lisboa, Portugal</p>
-                    <a href="#" class="method-btn">Ver no Mapa</a>
-                </div>
-
-                <div class="method-card">
-                    <div class="method-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h3>WhatsApp</h3>
-                    <p>Resposta em minutos</p>
-                    <a href="https://wa.me/351123456789" class="method-btn whatsapp">Conversar</a>
+                    <h3 data-i18n="methods.whatsapp.title">WhatsApp</h3>
+                    <p data-i18n="methods.whatsapp.desc">Message instantané</p>
+                    <a href="https://wa.me/+32471895622" target="_blank" rel="noopener" class="method-link" id="whatsapp-button">
+                        +32 471 89 56 22
+                    </a>
                 </div>
             </div>
         </div>
@@ -147,247 +289,509 @@
     <!-- Contact Form -->
     <section class="contact-form-section">
         <div class="container">
-            <div class="form-container">
-                <div class="form-info">
-                    <h2>Envie sua Mensagem</h2>
-                    <p>Preencha o formulário abaixo e nossa equipe entrará em contato em até 24 horas.</p>
-                    
-                    <div class="form-features">
-                        <div class="feature">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>Resposta em 24h</span>
-                        </div>
-                        <div class="feature">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>Orçamento gratuito</span>
-                        </div>
-                        <div class="feature">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>Consultoria especializada</span>
-                        </div>
-                    </div>
+            <h2 class="section-title" data-i18n="form.title">Formulaire de contact</h2>
+            <p class="section-subtitle" data-i18n="form.subtitle">Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures</p>
+            
+            <!-- Formulário Formspree simplificado para garantir funcionamento -->
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xvgqyjzo" method="POST">
+                <!-- Campo hidden para assunto dinâmico -->
+                <input type="hidden" name="_subject" id="_subject" value="Contact — JF SILVA Construções">
+                <!-- Redirecionamento após envio -->
+                <input type="hidden" name="_next" value="obrigado.html">
+
+                <div class="form-group">
+                    <label for="nome" data-i18n="form.name">Nom complet *</label>
+                    <input type="text" id="nome" name="nome" required>
                 </div>
-
-                <!-- Formulário Formspree simplificado para garantir funcionamento -->
-                <form class="contact-form" action="https://formspree.io/f/xvgqyjzo" method="POST">
-                    <!-- Campo hidden para assunto dinâmico -->
-                    <input type="hidden" name="_subject" id="_subject" value="Contato — JF SILVA Construções">
-                    <!-- Redirecionamento após envio -->
-                    <input type="hidden" name="_next" value="obrigado.html">
-
-                    <div class="form-group">
-                        <label for="nome">Nome Completo *</label>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="empresa">Empresa</label>
-                        <input type="text" id="empresa" name="empresa">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefone">Telefone</label>
-                        <input type="tel" id="telefone" name="telefone">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="assunto">Assunto *</label>
-                        <select id="assunto" name="assunto" required>
-                            <option value="">Selecione um assunto</option>
-                            <option value="orcamento">Solicitar Orçamento</option>
-                            <option value="parceria">Proposta de Parceria</option>
-                            <option value="trabalho">Trabalhe Conosco</option>
-                            <option value="duvida">Dúvida Técnica</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="mensagem">Mensagem *</label>
-                        <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Descreva seu projeto ou necessidade..."></textarea>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <button type="submit" class="submit-btn">
-                            <span>Enviar Mensagem</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-            </div>
+                <div class="form-group">
+                    <label for="email" data-i18n="form.email">E-mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="assunto" data-i18n="form.subject">Sujet *</label>
+                    <select id="assunto" name="assunto" required>
+                        <option value="" data-i18n="form.selectSubject">Sélectionnez un sujet</option>
+                        <option value="orcamento" data-i18n="form.quote">Demander un devis</option>
+                        <option value="parceria" data-i18n="form.partnership">Proposition de partenariat</option>
+                        <option value="outro" data-i18n="form.other">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="mensagem" data-i18n="form.message">Message *</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit" data-i18n="form.submit">
+                    <span class="btn-text" data-i18n="form.submit">Envoyer le message</span>
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </form>
         </div>
     </section>
-
-    <!-- FAQ Section -->
+    
     <section class="faq-section">
         <div class="container">
-            <h2 class="section-title">Perguntas Frequentes</h2>
+            <h2 class="section-title" data-i18n="faq.title">Questions fréquentes</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Qual o prazo para resposta?</h3>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nossa equipe responde todas as solicitações em até 24 horas úteis. Para projetos urgentes, entre em contato diretamente pelo WhatsApp.</p>
-                    </div>
+                    <h3 data-i18n="faq.q1">Comment puis-je demander un devis ?</h3>
+                    <p data-i18n="faq.a1">Vous pouvez demander un devis en remplissant le formulaire de contact sur notre site ou en nous contactant directement par téléphone ou e-mail.</p>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Vocês atendem em todo o país?</h3>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sim! Atendemos projetos em todo o território português e também em países da União Europeia, com equipes locais e certificações internacionais.</p>
-                    </div>
+                    <h3 data-i18n="faq.q2">Quelles sont les zones d'intervention de JF SILVA CONSTRUÇÕES ?</h3>
+                    <p data-i18n="faq.a2">Nous sommes spécialisés dans les structures en béton, le coffrage et les armatures, répondant à divers types de projets de construction civile.</p>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Como funciona o processo de orçamento?</h3>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Após receber sua solicitação, nossa equipe técnica analisa o projeto, visita o local se necessário e apresenta um orçamento detalhado em até 5 dias úteis.</p>
-                    </div>
+                    <h3 data-i18n="faq.q3">JF SILVA CONSTRUÇÕES intervient dans quelles régions ?</h3>
+                    <p data-i18n="faq.a3">Nous intervenons dans toute l'Europe, avec un focus sur le Portugal, l'Espagne, la Belgique et les Pays-Bas.</p>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Quais são as formas de pagamento?</h3>
-                        <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Aceitamos transferências bancárias, cheques e pagamentos parcelados conforme o projeto. Para projetos de grande porte, oferecemos condições especiais de financiamento.</p>
-                    </div>
+                    <h3 data-i18n="faq.q4">Offrez-vous des solutions personnalisées ?</h3>
+                    <p data-i18n="faq.a4">Oui, nous adaptons nos services aux besoins spécifiques de chaque projet, garantissant des solutions efficaces et personnalisées.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-i18n="faq.q5">Comment puis-je postuler à un poste chez JF SILVA CONSTRUÇÕES ?</h3>
+                    <p data-i18n="faq.a5">Vous pouvez envoyer votre CV via la section 'Travailler avec nous' sur notre site, où vous trouverez le formulaire de candidature.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
+    
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="brand-logo">
-                        <img src="./logo/logo10.png" alt="Logo da empresa" />
-                    </div>
+                    <img src="./logo/logo10.png" alt="JF SILVA CONSTRUÇÕES" class="footer-logo">
+                    <small class="muted">© <span id="year"></span> <span data-i18n="footer.rights">Tous droits réservés.</span></small>
                 </div>
-
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4>Empresa</h4>
-                        <a href="index.html#sobre">Sobre Nós</a>
-                        <a href="index.html#servicos">Serviços</a>
-                        <a href="index.html#portfolio">Portfólio</a>
-                        <a href="index.html#parceiros">Parceiros</a>
+                        <h4 data-i18n="footer.info">Informations</h4>
+                        <a href="#" data-i18n="footer.privacy">Politique de Confidentialité</a>
+                        <a href="#" data-i18n="footer.terms">Conditions de Service</a>
+                        <a href="#" data-i18n="footer.certifications">Certifications</a>
+                        <a href="#" data-i18n="footer.sustainability">Rapport de Durabilité</a>
                     </div>
-
                     <div class="footer-column">
-                        <h4>Contato</h4>
-                        <a href="tel:++32 471 89 56 22">++32 471 89 56 22</a>
-                        <a href="mailto:jfsilvaconstrucoes25@gmail.com">jfsilvaconstrucoes25@gmail.com</a>
-                        <a href="https://wa.me/+32 471 89 56 22">WhatsApp</a>
+                        <h4 data-i18n="footer.contact">Contactez-nous</h4>
+                        <a href="#contato" data-i18n="footer.commercial">Contact Commercial</a>
+                        <a href="#trabalhe-conosco" data-i18n="footer.hr">Ressources Humaines</a>
                     </div>
-
-                    <div class="footer-column">
-                        <h4>Legal</h4>
-                        <a href="#">Política de Privacidade</a>
-                        <a href="#">Termos de Serviço</a>
-                        <a href="#">Política de Cookies</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 JF SILVA CONSTRUÇÕES. Todos os direitos reservados.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.047-1.852-3.047-1.853 0-2.136 1.445-2.136 2.939v5.677H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.718-1.297c-.49.49-1.297.807-2.026.807s-1.536-.317-2.026-.807c-.49-.49-.807-1.297-.807-2.026s.317-1.536.807-2.026c.49-.49 1.297-.807 2.026-.807s1.536.317 2.026.807c.49.49.807 1.297.807 2.026s-.317 1.536-.807 2.026z"/>
-                        </svg>
-                    </a>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- WhatsApp Float -->
-    <div class="whatsapp-btn" aria-label="Contato via WhatsApp">
-        <a href="https://wa.me/+32 471 89 56 22" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
-            <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
-                <path fill="currentColor" d="M19.1 17.6c-.3.1-.6.2-1 .1-.5-.1-1.1-.4-1.8-.9c-.6-.4-1.1-1-1.6-1.6c-.4-.5-.7-1.1-.9-1.6c-.2-.5-.2-.9-.1-1.2c.1-.3.3-.5.6-.7c.2-.2.5-.5.7-.8c.2-.3.3-.6.3-.9s-.1-.6-.3-.9c-.1-.3-.3-.5-.6-.7c-.2-.2-.5-.3-.8-.4c-.3-.1-.6-.1-.9 0c-.6.1-1.2.5-1.7 1.1c-.5.6-.8 1.3-.9 2c-.1.8 0 1.6.3 2.4c.3.8.7 1.6 1.3 2.3c.9 1.2 2 2.3 3.4 3.1c1 .6 2 .9 2.9 1.1c1 .2 1.9.1 2.7-.2c.7-.3 1.3-.7 1.8-1.2c.5-.5.8-1.1.9-1.7c.1-.6 0-1.2-.3-1.8c-.2-.3-.4-.6-.8-.7c-.3-.1-.7-.1-1 0c-.3.2-.6.4-.8.7c-.2.4-.5.8-.7 1.2c-.1.2-.3.3-.6.4z"/>
-            </svg>
-        </a>
+    
+    <div id="image-modal" class="image-modal" aria-label="Visualiser l'image en plein écran">
+        <button class="close-btn" aria-label="Fermer la visualisation">&times;</button>
+        <img id="modal-image" src="" alt="Image agrandie" />
     </div>
-
-    <script src="index.js"></script>
-    <script src="contatos.js"></script>
-
-    <!-- Subject dinâmico simplificado -->
-    <script>
-      (function(){
-        const form = document.querySelector('.contact-form');
-        if (!form) return;
-        const assuntoSel = document.getElementById('assunto');
-        const subjectHidden = document.getElementById('_subject');
-        
-        function updateSubject(){
-          const assunto = assuntoSel.value;
-          if (assunto) {
-            const labels = {
-              'orcamento': 'Solicitar Orçamento',
-              'parceria': 'Proposta de Parceria',
-              'trabalho': 'Trabalhe Conosco',
-              'duvida': 'Dúvida Técnica',
-              'outro': 'Outro Assunto'
-            };
-            const label = labels[assunto] || 'Contato';
-            subjectHidden.value = `Contato — ${label} — JF SILVA Construções`;
-          } else {
-            subjectHidden.value = 'Contato — JF SILVA Construções';
-          }
-        }
-        
-        assuntoSel.addEventListener('change', updateSubject);
-        updateSubject(); // Executa uma vez ao carregar
-      })();
-    </script>
-
+    
+    <a href="https://wa.me/+32471895622" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Ouvrir WhatsApp" data-analytics-click="whatsapp_float" data-analytics-label="WhatsApp Flottant">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M19.1 17.6c-.3.1-.6.2-1 .1-.5-.1-1.1-.4-1.8-.9c-.6-.4-1.1-1-1.6-1.6c-.4-.5-.7-1.1-.9-1.6c-.2-.5-.2-.9-.1-1.2c.1-.3.3-.5.6-.7c.2-.2.5-.5.7-.8c-.2-.3-.3-.6-.3-.9s-.1-.6-.3-.9c-.1-.3-.3-.5-.6-.7c-.2-.2-.5-.3-.8-.4c-.3-.1-.6-.1-.9 0c-.6.1-1.2.5-1.7 1.1c-.5.6-.8 1.3-.9 2c-.1.8 0 1.6.3 2.4c.3.8.7 1.6 1.3 2.3c.9 1.2 2 2.3 3.4 3.1c1 .6 2 .9 2.9 1.1c1 .2 1.9.1 2.7-.2c.7-.3 1.3-.7 1.8-1.2c.5-.5.8-1.1.9-1.7c.1-.6 0-1.2-.3-1.8c-.2-.3-.4-.6-.8-.7c-.3-.1-.7-.1-1 0c-.3.2-.6.4-.8.7c-.2.4-.5.8-.7 1.2c-.1.2-.3.3-.6.4z"/></svg>
+    </a>
+    
+         <script src="index.js"></script>
+     <!-- <script src="enhanced-ui.js"></script> -->
+     <script src="contatos.js"></script>
+    
     <!-- Firebase Analytics (GA4) -->
     <script type="module" src="/scripts/firebase-analytics.js"></script>
+    
+    <!-- Sistema de idiomas -->
+    <script>
+        // Sistema de idiomas
+        const languages = {
+            fr: {
+                title: "Contact - JF SILVA CONSTRUÇÕES",
+                description: "Contactez JF SILVA CONSTRUÇÕES. Demandez des devis, des partenariats ou travaillez avec nous.",
+                nav: {
+                    about: "À propos",
+                    services: "Services",
+                    portfolio: "Portfolio",
+                    partners: "Partenaires",
+                    careers: "Travailler avec nous",
+                    contact: "Contact"
+                },
+                cta: {
+                    quote: "Demander un devis"
+                },
+                hero: {
+                    title: "Contactez-nous",
+                    subtitle: "Nous sommes là pour transformer vos idées en réalité",
+                    response: "Réponse",
+                    satisfaction: "Satisfaction",
+                    experience: "Années d'exp."
+                },
+                methods: {
+                    title: "Moyens de contact",
+                    email: {
+                        title: "E-mail",
+                        desc: "Envoi rapide et direct"
+                    },
+                    phone: {
+                        title: "Téléphone",
+                        desc: "Appel direct et personnel"
+                    },
+                    whatsapp: {
+                        title: "WhatsApp",
+                        desc: "Message instantané"
+                    }
+                },
+                form: {
+                    title: "Formulaire de contact",
+                    subtitle: "Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures",
+                    name: "Nom complet *",
+                    email: "E-mail *",
+                    subject: "Sujet *",
+                    selectSubject: "Sélectionnez un sujet",
+                    quote: "Demander un devis",
+                    partnership: "Proposition de partenariat",
+                    other: "Autre",
+                    message: "Message *",
+                    submit: "Envoyer le message"
+                },
+                faq: {
+                    title: "Questions fréquentes",
+                    q1: "Comment puis-je demander un devis ?",
+                    a1: "Vous pouvez demander un devis en remplissant le formulaire de contact sur notre site ou en nous contactant directement par téléphone ou e-mail.",
+                    q2: "Quelles sont les zones d'intervention de JF SILVA CONSTRUÇÕES ?",
+                    a2: "Nous sommes spécialisés dans les structures en béton, le coffrage et les armatures, répondant à divers types de projets de construction civile.",
+                    q3: "JF SILVA CONSTRUÇÕES intervient dans quelles régions ?",
+                    a3: "Nous intervenons dans toute l'Europe, avec un focus sur le Portugal, l'Espagne, la Belgique et les Pays-Bas.",
+                    q4: "Offrez-vous des solutions personnalisées ?",
+                    a4: "Oui, nous adaptons nos services aux besoins spécifiques de chaque projet, garantissant des solutions efficaces et personnalisées.",
+                    q5: "Comment puis-je postuler à un poste chez JF SILVA CONSTRUÇÕES ?",
+                    a5: "Vous pouvez envoyer votre CV via la section 'Travailler avec nous' sur notre site, où vous trouverez le formulaire de candidature."
+                },
+                footer: {
+                    rights: "Tous droits réservés.",
+                    info: "Informations",
+                    privacy: "Politique de Confidentialité",
+                    terms: "Conditions de Service",
+                    certifications: "Certifications",
+                    sustainability: "Rapport de Durabilité",
+                    contact: "Contactez-nous",
+                    commercial: "Contact Commercial",
+                    hr: "Ressources Humaines"
+                }
+            },
+            pt: {
+                title: "Contatos - JF SILVA CONSTRUÇÕES",
+                description: "Entre em contato com a JF SILVA CONSTRUÇÕES. Solicite orçamentos, parcerias ou trabalhe conosco.",
+                nav: {
+                    about: "Sobre",
+                    services: "Serviços",
+                    portfolio: "Portfólio",
+                    partners: "Parceiros",
+                    careers: "Trabalhe Conosco",
+                    contact: "Contatos"
+                },
+                cta: {
+                    quote: "Pedir um orçamento"
+                },
+                hero: {
+                    title: "Entre em Contato",
+                    subtitle: "Estamos aqui para transformar suas ideias em realidade",
+                    response: "Resposta",
+                    satisfaction: "Satisfação",
+                    experience: "Anos Exp."
+                },
+                methods: {
+                    title: "Formas de Contato",
+                    email: {
+                        title: "E-mail",
+                        desc: "Envio rápido e direto"
+                    },
+                    phone: {
+                        title: "Telefone",
+                        desc: "Chamada direta e pessoal"
+                    },
+                    whatsapp: {
+                        title: "WhatsApp",
+                        desc: "Mensagem instantânea"
+                    }
+                },
+                form: {
+                    title: "Formulário de Contato",
+                    subtitle: "Preencha o formulário abaixo e responderemos em até 24 horas",
+                    name: "Nome Completo *",
+                    email: "E-mail *",
+                    subject: "Assunto *",
+                    selectSubject: "Selecione um assunto",
+                    quote: "Solicitar Orçamento",
+                    partnership: "Proposta de Parceria",
+                    other: "Outro",
+                    message: "Mensagem *",
+                    submit: "Enviar Mensagem"
+                },
+                faq: {
+                    title: "Perguntas Frequentes",
+                    q1: "Como posso solicitar um orçamento?",
+                    a1: "Você pode solicitar um orçamento preenchendo o formulário de contato em nosso site ou entrando em contato diretamente por telefone ou e-mail.",
+                    q2: "Quais são as áreas de atuação da JF SILVA CONSTRUÇÕES?",
+                    a2: "Somos especializados em estruturas de betão, cofragem e armaduras, atendendo a diversos tipos de projetos de construção civil.",
+                    q3: "A JF SILVA CONSTRUÇÕES atende em quais regiões?",
+                    a3: "Atendemos em toda a Europa, com foco em Portugal, Espanha, Bélgica e Holanda.",
+                    q4: "Vocês oferecem soluções personalizadas?",
+                    a4: "Sim, adaptamos nossos serviços às necessidades específicas de cada projeto, garantindo soluções eficientes e personalizadas.",
+                    q5: "Como posso me candidatar a uma vaga na JF SILVA CONSTRUÇÕES?",
+                    a5: "Você pode enviar seu currículo através da seção 'Trabalhe Conosco' em nosso site, onde encontrará o formulário de candidatura."
+                },
+                footer: {
+                    rights: "Todos os direitos reservados.",
+                    info: "Informações",
+                    privacy: "Política de Privacidade",
+                    terms: "Termos de Serviço",
+                    certifications: "Certificações",
+                    sustainability: "Relatório de Sustentabilidade",
+                    contact: "Fale Conosco",
+                    commercial: "Contato Comercial",
+                    hr: "Recursos Humanos"
+                }
+            },
+            en: {
+                title: "Contact - JF SILVA CONSTRUÇÕES",
+                description: "Contact JF SILVA CONSTRUÇÕES. Request quotes, partnerships or work with us.",
+                nav: {
+                    about: "About",
+                    services: "Services",
+                    portfolio: "Portfolio",
+                    partners: "Partners",
+                    careers: "Work with us",
+                    contact: "Contact"
+                },
+                cta: {
+                    quote: "Request a quote"
+                },
+                hero: {
+                    title: "Get in Touch",
+                    subtitle: "We are here to transform your ideas into reality",
+                    response: "Response",
+                    satisfaction: "Satisfaction",
+                    experience: "Years Exp."
+                },
+                methods: {
+                    title: "Contact Methods",
+                    email: {
+                        title: "Email",
+                        desc: "Quick and direct sending"
+                    },
+                    phone: {
+                        title: "Phone",
+                        desc: "Direct and personal call"
+                    },
+                    whatsapp: {
+                        title: "WhatsApp",
+                        desc: "Instant message"
+                    }
+                },
+                form: {
+                    title: "Contact Form",
+                    subtitle: "Fill out the form below and we will respond within 24 hours",
+                    name: "Full Name *",
+                    email: "Email *",
+                    subject: "Subject *",
+                    selectSubject: "Select a subject",
+                    quote: "Request Quote",
+                    partnership: "Partnership Proposal",
+                    other: "Other",
+                    message: "Message *",
+                    submit: "Send Message"
+                },
+                faq: {
+                    title: "Frequently Asked Questions",
+                    q1: "How can I request a quote?",
+                    a1: "You can request a quote by filling out the contact form on our website or contacting us directly by phone or email.",
+                    q2: "What are JF SILVA CONSTRUÇÕES areas of expertise?",
+                    a2: "We specialize in concrete structures, formwork and reinforcements, serving various types of civil construction projects.",
+                    q3: "In which regions does JF SILVA CONSTRUÇÕES operate?",
+                    a3: "We serve throughout Europe, with a focus on Portugal, Spain, Belgium and the Netherlands.",
+                    q4: "Do you offer customized solutions?",
+                    a4: "Yes, we adapt our services to the specific needs of each project, ensuring efficient and personalized solutions.",
+                    q5: "How can I apply for a position at JF SILVA CONSTRUÇÕES?",
+                    a5: "You can send your resume through the 'Work with us' section on our website, where you will find the application form."
+                },
+                footer: {
+                    rights: "All rights reserved.",
+                    info: "Information",
+                    privacy: "Privacy Policy",
+                    terms: "Terms of Service",
+                    certifications: "Certifications",
+                    sustainability: "Sustainability Report",
+                    contact: "Contact Us",
+                    commercial: "Commercial Contact",
+                    hr: "Human Resources"
+                }
+            }
+        };
+
+        let currentLang = 'fr';
+
+        function toggleLanguage() {
+            if (currentLang === 'fr') {
+                currentLang = 'pt';
+            } else if (currentLang === 'pt') {
+                currentLang = 'en';
+            } else {
+                currentLang = 'fr';
+            }
+            setLanguage(currentLang);
+            updateLanguageButton();
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.title = languages[lang].title;
+            document.querySelector('meta[name="description"]').setAttribute('content', languages[lang].description);
+            
+            // Atualizar navegação
+            document.querySelectorAll('[data-i18n^="nav."]').forEach(el => {
+                const key = el.getAttribute('data-i18n').replace('nav.', '');
+                el.textContent = languages[lang].nav[key];
+            });
+            
+            // Atualizar CTA
+            document.querySelectorAll('[data-i18n^="cta."]').forEach(el => {
+                const key = el.getAttribute('data-i18n').replace('cta.', '');
+                el.textContent = languages[lang].cta[key];
+            });
+            
+            // Atualizar hero
+            document.querySelectorAll('[data-i18n^="hero."]').forEach(el => {
+                const key = el.getAttribute('data-i18n').replace('hero.', '');
+                el.textContent = languages[lang].hero[key];
+            });
+            
+            // Atualizar métodos
+            document.querySelectorAll('[data-i18n^="methods."]').forEach(el => {
+                const key = el.getAttribute('data-i18n').replace('methods.', '');
+                const keys = key.split('.');
+                if (keys.length === 2) {
+                    el.textContent = languages[lang].methods[keys[0]][keys[1]];
+                } else {
+                    el.textContent = languages[lang].methods[key];
+                }
+            });
+            
+            // Atualizar formulário
+            document.querySelectorAll('[data-i18n^="form."]').forEach(el => {
+                const key = el.getAttribute('data-i18n').replace('form.', '');
+                el.textContent = languages[lang].form[key];
+            });
+            
+            // Atualizar FAQ
+            document.querySelectorAll('[data-i18n^="faq."]').forEach(el => {
+                const key = el.getAttribute('data-i18n').replace('faq.', '');
+                el.textContent = languages[lang].faq[key];
+            });
+            
+            // Atualizar footer
+            document.querySelectorAll('[data-i18n^="footer."]').forEach(el => {
+                const key = el.getAttribute('data-i18n').replace('footer.', '');
+                el.textContent = languages[lang].footer[key];
+            });
+        }
+
+        function updateLanguageButton() {
+            const btn = document.querySelector('.language-toggle');
+            if (currentLang === 'fr') {
+                btn.textContent = '🇫🇷 FR';
+            } else if (currentLang === 'pt') {
+                btn.textContent = '🇧🇷 PT';
+            } else {
+                btn.textContent = '🇺🇸 EN';
+            }
+        }
+
+        // Inicializar com Francês
+        setLanguage('fr');
+        updateLanguageButton();
+    </script>
+
+         <!-- Subject dinâmico simplificado -->
+     <script>
+       (function(){
+         const form = document.querySelector('.contact-form');
+         if (!form) return;
+         const assuntoSel = document.getElementById('assunto');
+         const subjectHidden = document.getElementById('_subject');
+         
+         function updateSubject(){
+           const assunto = assuntoSel.value;
+           if (assunto) {
+             const labels = {
+               'orcamento': 'Solicitar Orçamento',
+               'parceria': 'Proposta de Parceria',
+               'trabalho': 'Trabalhe Conosco',
+               'duvida': 'Dúvida Técnica',
+               'outro': 'Outro Assunto'
+             };
+             const label = labels[assunto] || 'Contato';
+             subjectHidden.value = `Contato — ${label} — JF SILVA Construções`;
+           } else {
+             subjectHidden.value = 'Contato — JF SILVA Construções';
+           }
+         }
+         
+         assuntoSel.addEventListener('change', updateSubject);
+         updateSubject(); // Executa uma vez ao carregar
+       })();
+     </script>
+
+     <!-- Teste dos botões WhatsApp -->
+     <script>
+       document.addEventListener('DOMContentLoaded', function() {
+         console.log('🔍 Testando botões WhatsApp...');
+         
+         const phoneButton = document.getElementById('phone-button');
+         const whatsappButton = document.getElementById('whatsapp-button');
+         
+         if (phoneButton) {
+           console.log('✅ Botão telefone encontrado:', phoneButton.href);
+           phoneButton.addEventListener('click', function(e) {
+             console.log('📞 Botão telefone clicado!');
+             console.log('URL:', this.href);
+             console.log('Target:', this.target);
+             
+             // Teste direto - abrir WhatsApp
+             window.open(this.href, '_blank');
+           });
+         } else {
+           console.log('❌ Botão telefone não encontrado');
+         }
+         
+         if (whatsappButton) {
+           console.log('✅ Botão WhatsApp encontrado:', whatsappButton.href);
+           whatsappButton.addEventListener('click', function(e) {
+             console.log('💬 Botão WhatsApp clicado!');
+             console.log('URL:', this.href);
+             console.log('Target:', this.target);
+             
+             // Teste direto - abrir WhatsApp
+             window.open(this.href, '_blank');
+           });
+         } else {
+           console.log('❌ Botão WhatsApp não encontrado');
+         }
+         
+         // Teste adicional - verificar se os links estão sendo interceptados
+         console.log('🔍 Verificando event listeners...');
+         const allLinks = document.querySelectorAll('a[href*="wa.me"]');
+         console.log('Links WhatsApp encontrados:', allLinks.length);
+         allLinks.forEach((link, index) => {
+           console.log(`Link ${index + 1}:`, link.href, link);
+         });
+         
+         // Teste adicional - verificar se há algum problema com o CSS
+         console.log('🔍 Verificando CSS dos botões...');
+         const computedStyle = window.getComputedStyle(phoneButton);
+         console.log('Z-index do botão telefone:', computedStyle.zIndex);
+         console.log('Position do botão telefone:', computedStyle.position);
+         console.log('Pointer-events do botão telefone:', computedStyle.pointerEvents);
+       });
+     </script>
 </body>
 </html>

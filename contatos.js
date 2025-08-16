@@ -625,10 +625,34 @@
             // Sistema de notificações global
             window.notifications = new NotificationSystem();
             
+            // Adicionar função global para scroll do formulário
+            window.scrollToForm = this.scrollToForm.bind(this);
+            
             // Adicionar classe ao body
             document.body.classList.add('contact-page-loaded');
             
             console.log('✅ Página de Contatos ativa!');
+        }
+
+        // Função para rolar até o formulário de contato
+        scrollToForm() {
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+                
+                // Adicionar efeito visual de destaque
+                form.style.animation = 'pulse 0.6s ease';
+                setTimeout(() => {
+                    form.style.animation = '';
+                }, 600);
+                
+                console.log('📝 Rolando até o formulário de contato...');
+            } else {
+                console.warn('⚠️ Formulário de contato não encontrado');
+            }
         }
     }
 
@@ -658,6 +682,12 @@ style.textContent = `
     @keyframes spin {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+        100% { transform: scale(1); }
     }
     
     .form-group.focused label {

@@ -372,9 +372,16 @@
                 const href = link.getAttribute('href');
                 if (href === '#') return;
 
+                // Verificar se é um link interno (não externo)
+                if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || href.includes('wa.me')) {
+                    console.log('🔗 Link externo detectado, permitindo navegação normal:', href);
+                    return; // Deixar links externos funcionarem normalmente
+                }
+
                 const target = document.querySelector(href);
                 if (!target) return;
 
+                console.log('📍 Link interno detectado, fazendo scroll para:', href);
                 e.preventDefault();
                 this.scrollToElement(target);
             });

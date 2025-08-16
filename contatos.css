@@ -367,6 +367,10 @@ body.light-theme {
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .method-card::before {
@@ -376,20 +380,21 @@ body.light-theme {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: 1;
 }
 
 .method-card:hover::before {
-    opacity: 0.05;
+    opacity: 1;
 }
 
 .method-card:hover {
     transform: translateY(-15px) scale(1.02);
     box-shadow: var(--shadow-2xl);
     border-color: var(--brand);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .method-icon {
@@ -404,10 +409,12 @@ body.light-theme {
     position: relative;
     z-index: 2;
     transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3);
 }
 
 .method-card:hover .method-icon {
     transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 35px rgba(6, 182, 212, 0.4);
 }
 
 .method-card h3 {
@@ -416,6 +423,7 @@ body.light-theme {
     color: var(--text);
     position: relative;
     z-index: 2;
+    font-weight: 700;
 }
 
 .method-card p {
@@ -423,6 +431,8 @@ body.light-theme {
     margin-bottom: 25px;
     position: relative;
     z-index: 2;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .method-btn {
@@ -1091,5 +1101,172 @@ html {
     
     .hero-title {
         animation: none;
+    }
+}
+
+/* Botões de contato melhorados */
+.method-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    min-width: 200px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    z-index: 1000;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+/* Ícones nos botões */
+.method-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.method-link:hover::before {
+    left: 100%;
+}
+
+.method-link:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.method-link:active {
+    transform: translateY(-2px) scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+.method-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3), 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+/* Botão de telefone específico */
+.method-link[href^="tel:"] {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.method-link[href^="tel:"]:hover {
+    background: linear-gradient(135deg, #20c997 0%, #0f7a6b 100%);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+}
+
+.method-link[href^="tel:"]:focus {
+    box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.3), 0 15px 35px rgba(37, 211, 102, 0.5);
+}
+
+/* Botão de email específico */
+.method-link[href^="mailto:"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    margin: 0 auto;
+    display: block;
+}
+
+.method-link[href^="mailto:"]:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+.method-link[href^="mailto:"]:focus {
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3), 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+/* Botão de WhatsApp específico */
+.method-link[href*="wa.me"] {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.method-link[href*="wa.me"]:hover {
+    background: linear-gradient(135deg, #20c997 0%, #0f7a6b 100%);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+}
+
+.method-link[href*="wa.me"]:focus {
+    box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.3), 0 15px 35px rgba(37, 211, 102, 0.5);
+}
+
+/* Efeito de brilho nos botões */
+.method-link::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.method-link:hover::after {
+    opacity: 1;
+}
+
+/* Animação de entrada dos botões */
+.method-card .method-link {
+    animation: buttonAppear 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.method-card:nth-child(1) .method-link { animation-delay: 0.3s; }
+.method-card:nth-child(2) .method-link { animation-delay: 0.4s; }
+.method-card:nth-child(3) .method-link { animation-delay: 0.5s; }
+
+@keyframes buttonAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efeito de pressão nos botões */
+.method-link:active {
+    transform: translateY(-2px) scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* Responsividade dos botões */
+@media (max-width: 768px) {
+    .method-link {
+        padding: 14px 24px;
+        font-size: 1rem;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .method-link {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        min-width: 160px;
+        width: 100%;
+        max-width: 280px;
     }
 }

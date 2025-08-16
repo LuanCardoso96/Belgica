@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RH • Trabalhe Conosco | JF SILVA CONSTRUÇÕES</title>
+  <title></title>
   <style>
     * {
       margin: 0;
@@ -45,6 +45,31 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
+    }
+
+    /* Sistema de idiomas - Botão de troca */
+    .language-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 2px solid #667eea;
+      border-radius: 50px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      font-weight: 600;
+      color: #667eea;
+    }
+
+    .language-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+      background: #667eea;
+      color: white;
     }
 
     
@@ -706,18 +731,21 @@
   </style>
 </head>
 <body>
+  <!-- Botão de troca de idiomas -->
+  <button class="language-toggle" onclick="toggleLanguage()">🇫🇷 FR</button>
+
   <!-- Header -->
   <header class="header">
     <div class="header-content">
       
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html">Início</a></li>
-          <li><a href="index.html#sobre">Sobre</a></li>
-          <li><a href="index.html#servicos">Serviços</a></li>
-          <li><a href="index.html#portfolio">Portfólio</a></li>
-          <li><a href="index.html#parceiros">Parceiros</a></li>
-          <li><a href="contatos.html">Contatos</a></li>
+          <li><a href="index.html"></a></li>
+                      <li><a href="index.html#sobre"></a></li>
+                      <li><a href="index.html#servicos"></a></li>
+                      <li><a href="index.html#portfolio"></a></li>
+                      <li><a href="index.html#parceiros"></a></li>
+                      <li><a href="contatos.html"></a></li>
         </ul>
       </nav>
     </div>
@@ -726,20 +754,20 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1><span class="highlight">Junte-se</span> à nossa equipe</h1>
-      <p>Faça parte de uma empresa em crescimento e participe de projetos inovadores no setor da construção</p>
+              <h1><span class="highlight"></span> </h1>
+              <p></p>
       <div class="hero-stats">
         <div class="stat-item">
           <span class="stat-number">50+</span>
-          <span class="stat-label">Projetos realizados</span>
+                      <span class="stat-label"></span>
         </div>
         <div class="stat-item">
           <span class="stat-number">100+</span>
-          <span class="stat-label">Profissionais</span>
+                      <span class="stat-label"></span>
         </div>
         <div class="stat-item">
           <span class="stat-number">15+</span>
-          <span class="stat-label">Anos de experiência</span>
+                      <span class="stat-label"></span>
         </div>
       </div>
     </div>
@@ -748,28 +776,28 @@
   <!-- Benefits Section -->
   <section class="benefits">
     <div class="container">
-      <h2 class="section-title">Por que trabalhar conosco?</h2>
-      <p class="section-subtitle">Descubra as vantagens de fazer parte da nossa equipe</p>
+              <h2 class="section-title"></h2>
+              <p class="section-subtitle"></p>
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-icon">🚀</div>
-          <h3>Crescimento profissional</h3>
-          <p>Oportunidades de evolução e desenvolvimento de carreira</p>
+                      <h3></h3>
+                      <p></p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">💡</div>
-          <h3>Ambiente inovador</h3>
-          <p>Trabalho com as últimas tecnologias e métodos</p>
+                      <h3></h3>
+                      <p></p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">🤝</div>
-          <h3>Equipe colaborativa</h3>
-          <p>Cultura de equipe e trabalho em grupo</p>
+                      <h3></h3>
+                      <p></p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">🎯</div>
-          <h3>Projetos variados</h3>
-          <p>Diversidade de projetos e desafios técnicos</p>
+                      <h3></h3>
+                      <p></p>
         </div>
       </div>
     </div>
@@ -779,92 +807,92 @@
   <section class="form-section">
     <div class="container">
       <div class="form-container">
-        <h2 class="form-title">Candidatura</h2>
-        <p class="form-subtitle">Preencha o formulário abaixo para se candidatar</p>
+        <h2 class="form-title"></h2>
+                  <p class="form-subtitle"></p>
         
         <form id="formCandidato" data-analytics-form="contact">
           <div class="form-grid">
             <div class="form-group">
-              <label for="nome" class="form-label">Nome completo *</label>
-              <input type="text" id="nome" name="nome" required class="form-input" placeholder="Seu nome completo">
+              <label for="nome" class="form-label"></label>
+                              <input type="text" id="nome" name="nome" required class="form-input" placeholder="">
               <div class="field-error" id="nome-error"></div>
             </div>
             
             <div class="form-group">
-              <label for="email" class="form-label">E-mail *</label>
-              <input type="email" id="email" name="email" required class="form-input" placeholder="seu@email.com">
+              <label for="email" class="form-label"></label>
+                              <input type="email" id="email" name="email" required class="form-input" placeholder="">
               <div class="field-error" id="email-error"></div>
             </div>
             
             <div class="form-group">
-              <label for="telefone" class="form-label">Telefone</label>
-              <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="(11) 99999-0000">
+              <label for="telefone" class="form-label"></label>
+                              <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="">
               <div class="field-error" id="telefone-error"></div>
             </div>
             
             <div class="form-group">
-              <label for="cargo" class="form-label">Cargo desejado *</label>
+              <label for="cargo" class="form-label"></label>
               <select id="cargo" name="cargo" required class="form-select">
-                <option value="">Selecione um cargo</option>
-                <option value="engenheiro">Engenheiro Civil</option>
-                <option value="arquiteto">Arquiteto</option>
-                <option value="mestre">Mestre de Obras</option>
-                <option value="pedreiro">Pedreiro</option>
-                <option value="eletricista">Eletricista</option>
-                <option value="encanador">Encanador</option>
-                <option value="pintor">Pintor</option>
-                <option value="ajudante">Ajudante</option>
-                <option value="administrativo">Administrativo</option>
-                <option value="comercial">Comercial</option>
-                <option value="outro">Outro</option>
+                                  <option value=""></option>
+                                  <option value="engenheiro"></option>
+                                  <option value="arquiteto"></option>
+                                  <option value="mestre"></option>
+                                  <option value="pedreiro"></option>
+                                  <option value="eletricista"></option>
+                                  <option value="encanador"></option>
+                                  <option value="pintor"></option>
+                                  <option value="ajudante"></option>
+                                  <option value="administrativo"></option>
+                                  <option value="comercial"></option>
+                <option value="outro"></option>
               </select>
               <div class="field-error" id="cargo-error"></div>
             </div>
             
             <div class="form-group full-width">
-              <label for="experiencia" class="form-label">Experiência profissional</label>
-              <textarea id="experiencia" name="experiencia" class="form-textarea" rows="3" placeholder="Descreva sua experiência na área..."></textarea>
+              <label for="experiencia" class="form-label"></label>
+              <textarea id="experiencia" name="experiencia" class="form-textarea" rows="3" placeholder=""></textarea>
             </div>
             
             <div class="form-group full-width">
-              <label for="disponibilidade" class="form-label">Disponibilidade</label>
+              <label for="disponibilidade" class="form-label"></label>
               <select id="disponibilidade" name="disponibilidade" class="form-select">
-                <option value="">Selecione sua disponibilidade</option>
-                <option value="imediata">Imediata</option>
-                <option value="15_dias">Em 15 dias</option>
-                <option value="30_dias">Em 30 dias</option>
-                <option value="60_dias">Em 60 dias</option>
-                <option value="outro">Outro</option>
+                                  <option value=""></option>
+                                  <option value="imediata"></option>
+                                  <option value="15_dias"></option>
+                                  <option value="30_dias"></option>
+                                  <option value="60_dias"></option>
+                <option value="outro"></option>
               </select>
             </div>
             
             <div class="form-group full-width">
-              <label for="mensagem" class="form-label">Mensagem de motivação *</label>
-              <textarea id="mensagem" name="mensagem" required class="form-textarea" rows="4" maxlength="1000" placeholder="Explique por que você quer fazer parte da nossa equipe..."></textarea>
-              <div class="char-count">0 / 1000 caracteres</div>
+              <label for="mensagem" class="form-label"></label>
+              <textarea id="mensagem" name="mensagem" required class="form-textarea" rows="4" maxlength="1000" placeholder=""></textarea>
+              <div class="char-count"></div>
               <div class="field-error" id="mensagem-error"></div>
             </div>
             
             <div class="form-group full-width">
-              <label for="cv_file" class="form-label">CV (opcional)</label>
+              <label for="cv_file" class="form-label"></label>
               <div class="file-upload" onclick="document.getElementById('cv_file').click()">
                 <input type="file" id="cv_file" name="cv_file" accept=".pdf,.doc,.docx">
                 <div class="upload-icon">📁</div>
-                <span>Clique para selecionar um arquivo</span>
-                <small>PDF, DOC ou DOCX (máx 5MB)</small>
+                <span></span>
+                                  <small></small>
               </div>
             </div>
             
             <div class="form-group full-width">
               <div class="checkbox-container">
                 <input type="checkbox" id="lgpd" required>
-                <label for="lgpd">Autorizo o uso dos meus dados para o processo de recrutamento *</label>
+                <label for="lgpd"></label>
               </div>
             </div>
           </div>
           
           <button type="submit" class="submit-btn" id="submitBtn">
-            Enviar candidatura
+            
           </button>
         </form>
       </div>
@@ -876,36 +904,36 @@
     <div class="container">
       <div class="contact-grid">
         <div class="contact-info">
-          <h3>Informações RH</h3>
+          <h3></h3>
           <div class="contact-item">
             <div class="contact-icon">📧</div>
             <div>
-              <strong>E-mail:</strong>
-              <a href="mailto:rh@jfsilvaconstrucoes.com">rh@jfsilvaconstrucoes.com</a>
+              <strong></strong>
+              <a href="mailto:rh@jfsilvaconstrucoes.com"></a>
             </div>
           </div>
           
           <div class="contact-item">
             <div class="contact-icon">📞</div>
             <div>
-              <strong>Telefone:</strong>
-              <a href="tel:+32 471 89 56 22">+32 471 89 56 22</a>
+              <strong></strong>
+              <a href="tel:+32 471 89 56 22"></a>
             </div>
           </div>
           
           <div class="contact-item">
             <div class="contact-icon">📍</div>
             <div>
-              <strong>Endereço:</strong>
-              <span><br>Porto, Portugal</span>
+              <strong></strong>
+              <span><br></span>
             </div>
           </div>
         </div>
         
         <div class="contact-cta">
-          <h3>Dúvidas?</h3>
-          <p>Nossa equipe RH está aqui para ajudar. Entre em contato para mais informações.</p>
-          <a href="contatos.html" class="cta-btn">Fale conosco</a>
+          <h3></h3>
+          <p></p>
+          <a href="contatos.html" class="cta-btn"></a>
         </div>
       </div>
     </div>
@@ -916,15 +944,15 @@
     <div class="container">
       
       <div class="footer-links">
-        <a href="index.html">Início</a>
-        <a href="index.html#sobre">Sobre</a>
-        <a href="index.html#servicos">Serviços</a>
-        <a href="index.html#portfolio">Portfólio</a>
-        <a href="index.html#parceiros">Parceiros</a>
-        <a href="contatos.html">Contatos</a>
+        <a href="index.html"></a>
+        <a href="index.html#sobre"></a>
+        <a href="index.html#servicos"></a>
+        <a href="index.html#portfolio"></a>
+        <a href="index.html#parceiros"></a>
+        <a href="contatos.html"></a>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 JF SILVA CONSTRUÇÕES. Todos os direitos reservados.</p>
+        <p>&copy; 2024 JF SILVA CONSTRUÇÕES. </p>
       </div>
     </div>
   </footer>
@@ -967,7 +995,7 @@
       // Validate file
       const maxSize = 5 * 1024 * 1024; // 5MB
       if (file.size > maxSize) {
-        alert('Arquivo muito grande. Máximo 5MB.');
+        alert(languages[currentLang].validation.fileTooBig);
         fileInput.value = '';
         return;
       }
@@ -975,7 +1003,7 @@
       const allowedTypes = ['.pdf', '.doc', '.docx'];
       const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
       if (!allowedTypes.includes(fileExtension)) {
-        alert('Formato não suportado. Use PDF, DOC ou DOCX.');
+        alert(languages[currentLang].validation.formatNotSupported);
         fileInput.value = '';
         return;
       }
@@ -1018,17 +1046,19 @@
     const charCount = document.querySelector('.char-count');
 
     mensagemTextarea.addEventListener('input', function() {
-      const length = this.value.length;
+      const text = this.value;
       const maxLength = parseInt(this.getAttribute('maxlength'));
       
-      charCount.textContent = `${length} / ${maxLength} caracteres`;
+      // Update character count
+      const remaining = maxLength - text.length;
+      charCount.textContent = `${text.length} / ${maxLength} ${languages[currentLang].form.characters}`;
       
       // Update colors based on usage
       charCount.classList.remove('warning', 'danger');
-      if (length > maxLength * 0.8) {
+      if (text.length > maxLength * 0.8) {
         charCount.classList.add('warning');
       }
-      if (length > maxLength * 0.95) {
+      if (text.length > maxLength * 0.95) {
         charCount.classList.add('danger');
       }
     });
@@ -1045,32 +1075,32 @@
         case 'nome':
           if (field.value.length < 2) {
             isValid = false;
-            errorMessage = 'Nome deve ter pelo menos 2 caracteres';
+            errorMessage = languages[currentLang].validation.nameMin;
           }
           break;
         case 'email':
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!emailRegex.test(field.value)) {
             isValid = false;
-            errorMessage = 'E-mail inválido';
+            errorMessage = languages[currentLang].validation.emailInvalid;
           }
           break;
         case 'telefone':
           if (field.value && field.value.length < 8) {
             isValid = false;
-            errorMessage = 'Telefone deve ter pelo menos 8 dígitos';
+            errorMessage = languages[currentLang].validation.phoneMin;
           }
           break;
         case 'cargo':
           if (!field.value) {
             isValid = false;
-            errorMessage = 'Selecione um cargo';
+            errorMessage = languages[currentLang].validation.positionRequired;
           }
           break;
         case 'mensagem':
           if (field.value.length < 5) {
             isValid = false;
-            errorMessage = 'Mensagem deve ter pelo menos 5 caracteres';
+            errorMessage = languages[currentLang].validation.messageMin;
           }
           break;
       }
@@ -1133,7 +1163,7 @@
       e.preventDefault();
       
       if (!validateForm()) {
-        alert('Por favor, corrija os erros no formulário antes de enviar.');
+        alert(languages[currentLang].validation.formErrors);
         return;
       }
 
@@ -1141,7 +1171,7 @@
         // Disable button and show loading
         submitBtn.disabled = true;
         submitBtn.classList.add('loading');
-        submitBtn.textContent = 'Enviando...';
+        submitBtn.textContent = languages[currentLang].form.sending;
 
         // Extract form data manually to avoid File objects
         const data = {
@@ -1176,15 +1206,18 @@
         });
 
         // Success
-        alert('Candidatura enviada com sucesso! Entraremos em contato em até 48 horas.');
+        alert(languages[currentLang].validation.success);
         form.reset();
         
         // Clear file info
         const fileInfo = document.querySelector('.file-info');
         if (fileInfo) fileInfo.remove();
         
-        // Reset character count
-        charCount.textContent = '0 / 1000 caracteres';
+        // Initialize character count
+        charCount.textContent = `0 / 1000 ${languages[currentLang].form.characters}`;
+        
+        // Initialize form with current language
+        setLanguage(currentLang);
         
         // Clear validation states
         const inputs = form.querySelectorAll('input, select, textarea');
@@ -1192,17 +1225,512 @@
 
       } catch (err) {
         console.error(err);
-        alert('Erro ao enviar: ' + err.message);
+        alert(languages[currentLang].validation.error + err.message);
       } finally {
         // Restore button
         submitBtn.disabled = false;
         submitBtn.classList.remove('loading');
-        submitBtn.textContent = 'Enviar candidatura';
+        submitBtn.textContent = languages[currentLang].form.submit;
       }
     });
 
     // Make removeFile function global
     window.removeFile = removeFile;
+
+    // Sistema de idiomas
+    const languages = {
+      fr: {
+        title: "RH • Travailler avec nous | JF SILVA CONSTRUÇÕES",
+        hero: {
+          title: "Rejoignez notre équipe",
+          subtitle: "Faites partie d'une entreprise en croissance et participez à des projets innovants dans le secteur de la construction"
+        },
+        stats: {
+          projects: "Projets réalisés",
+          professionals: "Professionnels",
+          experience: "Années d'expérience"
+        },
+        benefits: {
+          title: "Pourquoi travailler avec nous ?",
+          subtitle: "Découvrez les avantages de faire partie de notre équipe",
+          growth: "Croissance professionnelle",
+          growthDesc: "Opportunités d'évolution et développement de carrière",
+          innovation: "Environnement innovant",
+          innovationDesc: "Travail avec les dernières technologies et méthodes",
+          team: "Équipe collaborative",
+          teamDesc: "Culture d'équipe et travail en groupe",
+          variety: "Projets variés",
+          varietyDesc: "Diversité de projets et défis techniques"
+        },
+        form: {
+          title: "Candidature",
+          subtitle: "Remplissez le formulaire ci-dessous pour postuler",
+          name: "Nom complet *",
+          email: "E-mail *",
+          phone: "Téléphone",
+          position: "Poste désiré *",
+          experience: "Expérience professionnelle",
+          availability: "Disponibilité",
+          message: "Message de motivation *",
+          cv: "CV (optionnel)",
+          lgpd: "J'autorise l'utilisation de mes données pour le processus de recrutement *",
+          submit: "Envoyer candidature",
+          sending: "Envoi en cours...",
+          selectPosition: "Sélectionnez un poste",
+          selectAvailability: "Sélectionnez votre disponibilité",
+          immediate: "Immédiate",
+          in15Days: "Dans 15 jours",
+          in30Days: "Dans 30 jours",
+          in60Days: "Dans 60 jours",
+          other: "Autre",
+          characters: "caractères"
+        },
+        contact: {
+          title: "Informations RH",
+          email: "E-mail:",
+          phone: "Téléphone:",
+          address: "Adresse:",
+          questions: "Des questions ?",
+          subtitle: "Notre équipe RH est là pour vous aider. Contactez-nous pour plus d'informations.",
+          cta: "Contactez-nous"
+        },
+        footer: {
+          home: "Accueil",
+          about: "À propos",
+          services: "Services",
+          portfolio: "Portfolio",
+          partners: "Partenaires",
+          contact: "Contact",
+          rights: "Tous droits réservés"
+        },
+        validation: {
+          nameMin: "Le nom doit avoir au moins 2 caractères",
+          emailInvalid: "E-mail invalide",
+          phoneMin: "Le téléphone doit avoir au moins 8 chiffres",
+          positionRequired: "Sélectionnez un poste",
+          messageMin: "Le message doit avoir au moins 5 caractères",
+          formErrors: "Veuillez corriger les erreurs dans le formulaire avant d'envoyer.",
+          success: "Candidature envoyée avec succès ! Nous vous contacterons dans les 48 heures.",
+          error: "Erreur lors de l'envoi : ",
+          fileTooBig: "Fichier trop volumineux. Maximum 5MB.",
+          formatNotSupported: "Format non supporté. Utilisez PDF, DOC ou DOCX."
+        }
+      },
+      pt: {
+        title: "RH • Trabalhe Conosco | JF SILVA CONSTRUÇÕES",
+        hero: {
+          title: "Junte-se à nossa equipe",
+          subtitle: "Faça parte de uma empresa em crescimento e participe de projetos inovadores no setor da construção"
+        },
+        stats: {
+          projects: "Projetos realizados",
+          professionals: "Profissionais",
+          experience: "Anos de experiência"
+        },
+        benefits: {
+          title: "Por que trabalhar conosco?",
+          subtitle: "Descubra as vantagens de fazer parte da nossa equipe",
+          growth: "Crescimento profissional",
+          growthDesc: "Oportunidades de evolução e desenvolvimento de carreira",
+          innovation: "Ambiente inovador",
+          innovationDesc: "Trabalho com as últimas tecnologias e métodos",
+          team: "Equipe colaborativa",
+          teamDesc: "Cultura de equipe e trabalho em grupo",
+          variety: "Projetos variados",
+          varietyDesc: "Diversidade de projetos e desafios técnicos"
+        },
+        form: {
+          title: "Candidatura",
+          subtitle: "Preencha o formulário abaixo para se candidatar",
+          name: "Nome completo *",
+          email: "E-mail *",
+          phone: "Telefone",
+          position: "Cargo desejado *",
+          experience: "Experiência profissional",
+          availability: "Disponibilidade",
+          message: "Mensagem de motivação *",
+          cv: "CV (opcional)",
+          lgpd: "Autorizo o uso dos meus dados para o processo de recrutamento *",
+          submit: "Enviar candidatura",
+          sending: "Enviando...",
+          selectPosition: "Selecione um cargo",
+          selectAvailability: "Selecione sua disponibilidade",
+          immediate: "Imediata",
+          in15Days: "Em 15 dias",
+          in30Days: "Em 30 dias",
+          in60Days: "Em 60 dias",
+          other: "Outro",
+          characters: "caracteres"
+        },
+        contact: {
+          title: "Informações RH",
+          email: "E-mail:",
+          phone: "Telefone:",
+          address: "Endereço:",
+          questions: "Dúvidas?",
+          subtitle: "Nossa equipe RH está aqui para ajudar. Entre em contato para mais informações.",
+          cta: "Fale conosco"
+        },
+        footer: {
+          home: "Início",
+          about: "Sobre",
+          services: "Serviços",
+          portfolio: "Portfólio",
+          partners: "Parceiros",
+          contact: "Contatos",
+          rights: "Todos os direitos reservados"
+        },
+        validation: {
+          nameMin: "Nome deve ter pelo menos 2 caracteres",
+          emailInvalid: "E-mail inválido",
+          phoneMin: "Telefone deve ter pelo menos 8 dígitos",
+          positionRequired: "Selecione um cargo",
+          messageMin: "Mensagem deve ter pelo menos 5 caracteres",
+          formErrors: "Por favor, corrija os erros no formulário antes de enviar.",
+          success: "Candidatura enviada com sucesso! Entraremos em contato em até 48 horas.",
+          error: "Erro ao enviar: ",
+          fileTooBig: "Arquivo muito grande. Máximo 5MB.",
+          formatNotSupported: "Formato não suportado. Use PDF, DOC ou DOCX."
+        }
+      },
+      en: {
+        title: "HR • Work with us | JF SILVA CONSTRUÇÕES",
+        hero: {
+          title: "Join our team",
+          subtitle: "Be part of a growing company and participate in innovative projects in the construction sector"
+        },
+        stats: {
+          projects: "Completed projects",
+          professionals: "Professionals",
+          experience: "Years of experience"
+        },
+        benefits: {
+          title: "Why work with us?",
+          subtitle: "Discover the advantages of being part of our team",
+          growth: "Professional growth",
+          growthDesc: "Career evolution opportunities and development",
+          innovation: "Innovative environment",
+          innovationDesc: "Work with the latest technologies and methods",
+          team: "Collaborative team",
+          teamDesc: "Team culture and group work",
+          variety: "Varied projects",
+          varietyDesc: "Project diversity and technical challenges"
+        },
+        form: {
+          title: "Application",
+          subtitle: "Fill out the form below to apply",
+          name: "Full name *",
+          email: "Email *",
+          phone: "Phone",
+          position: "Desired position *",
+          experience: "Professional experience",
+          availability: "Availability",
+          message: "Motivation message *",
+          cv: "CV (optional)",
+          lgpd: "I authorize the use of my data for the recruitment process *",
+          submit: "Send application",
+          sending: "Sending...",
+          selectPosition: "Select a position",
+          selectAvailability: "Select your availability",
+          immediate: "Immediate",
+          in15Days: "In 15 days",
+          in30Days: "In 30 days",
+          in60Days: "In 60 days",
+          other: "Other",
+          characters: "characters"
+        },
+        contact: {
+          title: "HR Information",
+          email: "Email:",
+          phone: "Phone:",
+          address: "Address:",
+          questions: "Questions?",
+          subtitle: "Our HR team is here to help. Contact us for more information.",
+          cta: "Contact us"
+        },
+        footer: {
+          home: "Home",
+          about: "About",
+          services: "Services",
+          portfolio: "Portfolio",
+          partners: "Partners",
+          contact: "Contact",
+          rights: "All rights reserved"
+        },
+        validation: {
+          nameMin: "Name must have at least 2 characters",
+          emailInvalid: "Invalid email",
+          phoneMin: "Phone must have at least 8 digits",
+          positionRequired: "Select a position",
+          messageMin: "Message must have at least 5 characters",
+          formErrors: "Please correct the errors in the form before sending.",
+          success: "Application sent successfully! We will contact you within 48 hours.",
+          error: "Error sending: ",
+          fileTooBig: "File too large. Maximum 5MB.",
+          formatNotSupported: "Format not supported. Use PDF, DOC or DOCX."
+        }
+      }
+    };
+
+    let currentLang = 'fr';
+
+    function toggleLanguage() {
+      if (currentLang === 'fr') {
+        currentLang = 'pt';
+      } else if (currentLang === 'pt') {
+        currentLang = 'en';
+      } else {
+        currentLang = 'fr';
+      }
+      setLanguage(currentLang);
+      updateLanguageButton();
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.title = languages[lang].title;
+      
+      // Atualizar navegação
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks[0].textContent = languages[lang].footer.home;
+      navLinks[1].textContent = languages[lang].footer.about;
+      navLinks[2].textContent = languages[lang].footer.services;
+      navLinks[3].textContent = languages[lang].footer.portfolio;
+      navLinks[4].textContent = languages[lang].footer.partners;
+      navLinks[5].textContent = languages[lang].footer.contact;
+      
+      // Atualizar hero
+      if (lang === 'fr') {
+        document.querySelector('.hero h1 .highlight').textContent = 'Rejoignez';
+        document.querySelector('.hero h1').innerHTML = '<span class="highlight">Rejoignez</span> notre équipe';
+      } else if (lang === 'pt') {
+        document.querySelector('.hero h1 .highlight').textContent = 'Junte-se';
+        document.querySelector('.hero h1').innerHTML = '<span class="highlight">Junte-se</span> à nossa equipe';
+      } else if (lang === 'en') {
+        document.querySelector('.hero h1 .highlight').textContent = 'Join';
+        document.querySelector('.hero h1').innerHTML = '<span class="highlight">Join</span> our team';
+      }
+      document.querySelector('.hero p').textContent = languages[lang].hero.subtitle;
+      
+      // Atualizar estatísticas
+      const statLabels = document.querySelectorAll('.stat-label');
+      statLabels[0].textContent = languages[lang].stats.projects;
+      statLabels[1].textContent = languages[lang].stats.professionals;
+      statLabels[2].textContent = languages[lang].stats.experience;
+      
+      // Atualizar benefícios
+      document.querySelector('.benefits .section-title').textContent = languages[lang].benefits.title;
+      document.querySelector('.benefits .section-subtitle').textContent = languages[lang].benefits.subtitle;
+      
+      // Atualizar títulos e descrições dos benefícios
+      const benefitCards = document.querySelectorAll('.benefit-card');
+      if (benefitCards.length >= 4) {
+        // Primeiro card - Crescimento profissional
+        benefitCards[0].querySelector('h3').textContent = languages[lang].benefits.growth;
+        benefitCards[0].querySelector('p').textContent = languages[lang].benefits.growthDesc;
+        
+        // Segundo card - Ambiente inovador
+        benefitCards[1].querySelector('h3').textContent = languages[lang].benefits.innovation;
+        benefitCards[1].querySelector('p').textContent = languages[lang].benefits.innovationDesc;
+        
+        // Terceiro card - Equipe colaborativa
+        benefitCards[2].querySelector('h3').textContent = languages[lang].benefits.team;
+        benefitCards[2].querySelector('p').textContent = languages[lang].benefits.teamDesc;
+        
+        // Quarto card - Projetos variados
+        benefitCards[3].querySelector('h3').textContent = languages[lang].benefits.variety;
+        benefitCards[3].querySelector('p').textContent = languages[lang].benefits.varietyDesc;
+      }
+      
+      // Atualizar formulário
+      document.querySelector('.form-title').textContent = languages[lang].form.title;
+      document.querySelector('.form-subtitle').textContent = languages[lang].form.subtitle;
+      
+      // Atualizar campos do formulário
+      document.querySelector('label[for="nome"]').textContent = languages[lang].form.name;
+      document.querySelector('label[for="email"]').textContent = languages[lang].form.email;
+      document.querySelector('label[for="telefone"]').textContent = languages[lang].form.phone;
+      document.querySelector('label[for="cargo"]').textContent = languages[lang].form.position;
+      document.querySelector('label[for="experiencia"]').textContent = languages[lang].form.experience;
+      document.querySelector('label[for="disponibilidade"]').textContent = languages[lang].form.availability;
+      document.querySelector('label[for="mensagem"]').textContent = languages[lang].form.message;
+      document.querySelector('label[for="cv_file"]').textContent = languages[lang].form.cv;
+      document.querySelector('label[for="lgpd"]').textContent = languages[lang].form.lgpd;
+      
+      // Atualizar placeholders
+      const nomeInput = document.getElementById('nome');
+      const emailInput = document.getElementById('email');
+      const telefoneInput = document.getElementById('telefone');
+      const experienciaTextarea = document.getElementById('experiencia');
+      const mensagemTextarea = document.getElementById('mensagem');
+      
+      if (nomeInput) nomeInput.placeholder = languages[lang].form.name;
+      if (emailInput) emailInput.placeholder = languages[lang].form.email;
+      if (telefoneInput) telefoneInput.placeholder = languages[lang].form.phone;
+      if (experienciaTextarea) experienciaTextarea.placeholder = languages[lang].form.experience;
+      if (mensagemTextarea) mensagemTextarea.placeholder = languages[lang].form.message;
+      
+      // Atualizar opções do select de cargo
+      const cargoSelect = document.getElementById('cargo');
+      if (cargoSelect) {
+        cargoSelect.options[0].textContent = languages[lang].form.selectPosition;
+        if (lang === 'fr') {
+          cargoSelect.options[1].textContent = 'Ingénieur en construction';
+          cargoSelect.options[2].textContent = 'Architecte';
+          cargoSelect.options[3].textContent = 'Chef de chantier';
+          cargoSelect.options[4].textContent = 'Maçon';
+          cargoSelect.options[5].textContent = 'Électricien';
+          cargoSelect.options[6].textContent = 'Plombier';
+          cargoSelect.options[7].textContent = 'Peintre';
+          cargoSelect.options[8].textContent = 'Aide';
+          cargoSelect.options[9].textContent = 'Administratif';
+          cargoSelect.options[10].textContent = 'Commercial';
+        } else if (lang === 'pt') {
+          cargoSelect.options[1].textContent = 'Engenheiro Civil';
+          cargoSelect.options[2].textContent = 'Arquiteto';
+          cargoSelect.options[3].textContent = 'Mestre de Obras';
+          cargoSelect.options[4].textContent = 'Pedreiro';
+          cargoSelect.options[5].textContent = 'Eletricista';
+          cargoSelect.options[6].textContent = 'Encanador';
+          cargoSelect.options[7].textContent = 'Pintor';
+          cargoSelect.options[8].textContent = 'Ajudante';
+          cargoSelect.options[9].textContent = 'Administrativo';
+          cargoSelect.options[10].textContent = 'Comercial';
+        } else if (lang === 'en') {
+          cargoSelect.options[1].textContent = 'Civil Engineer';
+          cargoSelect.options[2].textContent = 'Architect';
+          cargoSelect.options[3].textContent = 'Site Manager';
+          cargoSelect.options[4].textContent = 'Mason';
+          cargoSelect.options[5].textContent = 'Electrician';
+          cargoSelect.options[6].textContent = 'Plumber';
+          cargoSelect.options[7].textContent = 'Painter';
+          cargoSelect.options[8].textContent = 'Helper';
+          cargoSelect.options[9].textContent = 'Administrative';
+          cargoSelect.options[10].textContent = 'Commercial';
+        }
+        cargoSelect.options[11].textContent = languages[lang].form.other;
+      }
+      
+      // Atualizar opções do select de disponibilidade
+      const disponibilidadeSelect = document.getElementById('disponibilidade');
+      if (disponibilidadeSelect) {
+        disponibilidadeSelect.options[0].textContent = languages[lang].form.selectAvailability;
+        disponibilidadeSelect.options[1].textContent = languages[lang].form.immediate;
+        disponibilidadeSelect.options[2].textContent = languages[lang].form.in15Days;
+        disponibilidadeSelect.options[3].textContent = languages[lang].form.in30Days;
+        disponibilidadeSelect.options[4].textContent = languages[lang].form.in60Days;
+        disponibilidadeSelect.options[5].textContent = languages[lang].form.other;
+      }
+      
+      // Atualizar botão
+      document.getElementById('submitBtn').textContent = languages[lang].form.submit;
+      
+      // Atualizar contador de caracteres
+      const charCount = document.querySelector('.char-count');
+      if (charCount) {
+        const currentCount = charCount.textContent.split('/')[0].trim();
+        charCount.textContent = `${currentCount} / 1000 ${languages[lang].form.characters}`;
+      }
+      
+      // Atualizar contato
+      document.querySelector('.contact-info h3').textContent = languages[lang].contact.title;
+      document.querySelector('.contact-cta h3').textContent = languages[lang].contact.questions;
+      document.querySelector('.contact-cta p').textContent = languages[lang].contact.subtitle;
+      document.querySelector('.contact-cta .cta-btn').textContent = languages[lang].contact.cta;
+      
+      // Atualizar labels de contato
+      const contactLabels = document.querySelectorAll('.contact-item strong');
+      if (contactLabels.length >= 3) {
+        contactLabels[0].textContent = languages[lang].contact.email;
+        contactLabels[1].textContent = languages[lang].contact.phone;
+        contactLabels[2].textContent = languages[lang].contact.address;
+      }
+      
+      // Atualizar endereços de contato
+      const emailLink = document.querySelector('.contact-item a[href^="mailto:"]');
+      const phoneLink = document.querySelector('.contact-item a[href^="tel:"]');
+      const addressSpan = document.querySelector('.contact-item span');
+      
+      if (emailLink) {
+        if (lang === 'fr') {
+          emailLink.textContent = 'rh@jfsilvaconstrucoes.com';
+        } else if (lang === 'pt') {
+          emailLink.textContent = 'rh@jfsilvaconstrucoes.com';
+        } else if (lang === 'en') {
+          emailLink.textContent = 'rh@jfsilvaconstrucoes.com';
+        }
+      }
+      
+      if (phoneLink) {
+        if (lang === 'fr') {
+          phoneLink.textContent = '+32 471 89 56 22';
+        } else if (lang === 'pt') {
+          phoneLink.textContent = '+32 471 89 56 22';
+        } else if (lang === 'en') {
+          phoneLink.textContent = '+32 471 89 56 22';
+        }
+      }
+      
+      if (addressSpan) {
+        if (lang === 'fr') {
+          addressSpan.innerHTML = '<br>Porto, Portugal';
+        } else if (lang === 'pt') {
+          addressSpan.innerHTML = '<br>Porto, Portugal';
+        } else if (lang === 'en') {
+          addressSpan.innerHTML = '<br>Porto, Portugal';
+        }
+      }
+      
+      // Atualizar textos de upload de arquivo
+      const fileUploadSpan = document.querySelector('.file-upload span');
+      const fileUploadSmall = document.querySelector('.file-upload small');
+      
+      if (fileUploadSpan) {
+        if (lang === 'fr') {
+          fileUploadSpan.textContent = 'Cliquez pour sélectionner un fichier';
+        } else if (lang === 'pt') {
+          fileUploadSpan.textContent = 'Clique para selecionar um arquivo';
+        } else if (lang === 'en') {
+          fileUploadSpan.textContent = 'Click to select a file';
+        }
+      }
+      
+      if (fileUploadSmall) {
+        if (lang === 'fr') {
+          fileUploadSmall.textContent = 'PDF, DOC ou DOCX (max 5MB)';
+        } else if (lang === 'pt') {
+          fileUploadSmall.textContent = 'PDF, DOC ou DOCX (máx 5MB)';
+        } else if (lang === 'en') {
+          fileUploadSmall.textContent = 'PDF, DOC or DOCX (max 5MB)';
+        }
+      }
+      
+      // Atualizar footer
+      const footerLinks = document.querySelectorAll('.footer-links a');
+      footerLinks[0].textContent = languages[lang].footer.home;
+      footerLinks[1].textContent = languages[lang].footer.about;
+      footerLinks[2].textContent = languages[lang].footer.services;
+      footerLinks[3].textContent = languages[lang].footer.portfolio;
+      footerLinks[4].textContent = languages[lang].footer.partners;
+      footerLinks[5].textContent = languages[lang].footer.contact;
+      
+      document.querySelector('.footer-bottom p').innerHTML = `&copy; 2024 JF SILVA CONSTRUÇÕES. ${languages[lang].footer.rights}`;
+    }
+
+    function updateLanguageButton() {
+      const btn = document.querySelector('.language-toggle');
+      if (currentLang === 'fr') {
+        btn.textContent = '🇫🇷 FR';
+      } else if (currentLang === 'pt') {
+        btn.textContent = '🇧🇷 PT';
+      } else {
+        btn.textContent = '🇺🇸 EN';
+      }
+    }
+
+    // Inicializar com Francês
+    setLanguage('fr');
   </script>
 </body>
 </html>
