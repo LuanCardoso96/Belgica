@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="pt">
+<html lang="fr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0f172a" />
-    <title>J&F SILVA — Engenharia que gera resultados</title>
-    <meta name="description" content="J&F SILVA com mais de 200 profissionais. Cofragem, armaduras e estruturas de betão. Peça um orçamento." />
+    <title>JF SILVA — Engenharia que gera resultados</title>
+    <meta name="description" content="JF SILVA CONSTRUÇÕEScom mais de 200 profissionais. Cofragem, armaduras e estruturas de betão. Peça um orçamento." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,11 +16,11 @@
 
     <header class="main-header navbar-glass">
         <div class="container nav">
-            <a href="#" class="brand" aria-label="J&F SILVA">
+            <a href="#" class="brand" aria-label="JF SILVA CONSTRUÇÕES">
                 <div class="brand-logo" aria-hidden="true">
-                    <img src="./logo/logo10.png" alt="Logo da empresa" />
+                    <img src="./logo/logo10.jpg" alt="Logo da empresa" />
                 </div>
-                <span data-i18n="brand" class="company-name-highlight">J&F SILVA</span>
+                <span data-i18n="brand" class="company-name-highlight">JF SILVA CONSTRUÇÕES</span>
             </a>
 
             <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
@@ -63,14 +63,14 @@
                     </svg>
                 </button>
 
-                <div class="lang-selector">
-                    <select id="langSel" aria-label="Selecionar idioma">
-                        <option value="pt">🇧🇷 PT</option>
-                        <option value="fr">🇫🇷 FR</option>
-                        <option value="en">🇺🇸 EN</option>
-                        <option value="ja">🇯🇵 JA</option>
-                    </select>
-                </div>
+                                        <div class="lang-selector">
+                            <select id="langSel" aria-label="Selecionar idioma">
+                                <option value="pt">🇧🇷 PT</option>
+                                <option value="fr" selected>🇫🇷 FR</option>
+                                <option value="en">🇺🇸 EN</option>
+                                <option value="ja">🇯🇵 JA</option>
+                            </select>
+                        </div>
             </div>
         </div>
     </header>
@@ -82,15 +82,15 @@
                 <div>
                     <span class="tag kicker" data-i18n="hero.kicker">Subcontratação • Cofragem • Armaduras</span>
                     <h1 class="hero-title" data-i18n="hero.title">Engenharia que gera resultados e entrega qualidade</h1>
-                    <p class="lead" data-i18n="hero.lead">Somos a <span class="company-name-highlight">J&F SILVA</span>, uma empresa subcontratada com <strong>200+ profissionais</strong> dedicada a estruturas de betão, cofragem e armaduras. Atendemos empreiteiros gerais com agilidade, segurança e um custo competitivo.</p>
+                    <p class="lead" data-i18n="hero.lead">Somos a <span class="company-name-highlight">J&F</span>, uma empresa subcontratada com <strong>200+ profissionais</strong> dedicada a estruturas de betão, cofragem e armaduras. Atendemos empreiteiros gerais com agilidade, segurança e um custo competitivo.</p>
                     <div class="hero-actions">
-                        <a class="cta-link primary btn-3d" href="#contato" role="button" data-i18n="hero.cta">
+                        <a class="cta-link primary btn-3d" href="#contato" role="button" data-i18n="hero.cta" data-analytics-click="cta_orcamento" data-analytics-label="Hero CTA">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
           </svg>
           Pedir um orçamento
         </a>
-                        <a class="cta-link secondary btn-3d" href="#portfolio" role="button" data-i18n="hero.secondary">Ver projetos</a>
+                        <a class="cta-link secondary btn-3d" href="#portfolio" role="button" data-i18n="hero.secondary" data-analytics-click="cta_portfolio" data-analytics-label="Hero Portfolio">Ver projetos</a>
                     </div>
                                           <div class="stats reveal" aria-label="Estatísticas chave">
                         <div class="stat animate-on-scroll">
@@ -292,7 +292,7 @@
             <div class="container">
                 <h2 class="section-title" data-i18n="contact.title">Fale conosco</h2>
                 <p class="section-desc" data-i18n="contact.desc">Preencha o formulário e retornaremos hoje mesmo. Ou fale conosco via WhatsApp.</p>
-                <form class="contact-form animate-on-scroll" action="#" method="post" novalidate>
+                <form class="contact-form animate-on-scroll" action="#" method="post" novalidate data-analytics-form="contact">
                     <div>
                         <label for="nome" data-i18n="form.name">Nome</label>
                         <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required />
@@ -322,7 +322,7 @@
                         <textarea id="mensagem" name="mensagem" placeholder="Descreva sua necessidade" required></textarea>
                     </div>
                     <div class="full form-actions">
-                        <button class="cta-link primary" type="submit" data-i18n="form.send">Enviar</button>
+                        <button class="cta-link primary" type="submit" data-i18n="form.send" data-analytics-click="enviar_form" data-analytics-label="Form Contato">Enviar</button>
                         <span class="help" data-i18n="form.privacy">Ao enviar, você concorda com nossa política de privacidade.</span>
                     </div>
                 </form>
@@ -337,7 +337,7 @@
                     <div class="careers-intro">
                         <h3>Trabalhe Conosco</h3>
                         <p>Junte-se à nossa equipe de profissionais qualificados. Oferecemos oportunidades de crescimento e desenvolvimento em um ambiente seguro e inovador.</p>
-                        <a href="https://wa.me/351912345678?text=Olá! Gostaria de saber mais sobre oportunidades de trabalho na J&F SILVA" class="cta-link primary" target="_blank" rel="noopener">
+                        <a href="rh.html" class="cta-link primary" data-analytics-click="cta_rh" data-analytics-label="Trabalhe Conosco">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.1 17.6c-.3.1-.6.2-1 .1-.5-.1-1.1-.4-1.8-.9c-.6-.4-1.1-1-1.6-1.6c-.4-.5-.7-1.1-.9-1.6c-.2-.5-.2-.9-.1-1.2c.1-.3.3-.5.6-.7c.2-.2.5-.5.7-.8c.2-.3.3-.6.3-.9s-.1-.6-.3-.9c-.1-.3-.3-.5-.6-.7c-.2-.2-.5-.3-.8-.4c-.3-.1-.6-.1-.9 0c-.6.1-1.2.5-1.7 1.1c-.5.6-.8 1.3-.9 2c-.1.8 0 1.6.3 2.4c.3.8.7 1.6 1.3 2.3c.9 1.2 2 2.3 3.4 3.1c1 .6 2 .9 2.9 1.1c1 .2 1.9.1 2.7-.2c.7-.3 1.3-.7 1.8-1.2c.5-.5.8-1.1.9-1.7c.1-.6 0-1.2-.3-1.8c-.2-.3-.4-.6-.8-.7c-.3-.1-.7-.1-1 0c-.3.2-.6.4-.8.7c-.2.4-.5.8-.7 1.2c-.1.2-.3.3-.6.4z"/></svg>
                             Enviar CV para RH
                         </a>
@@ -346,15 +346,15 @@
                         <h3>Contato RH</h3>
                         <div class="info-item">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                            <span>rh@jefsilva.pt</span>
+                            <span>jfsilvacontrucoes@gmail.com</span>
                         </div>
                         <div class="info-item">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                            <span>(+351) 91 234 5678</span>
+                            <span>(+32) 471 89 56 22</span>
                         </div>
                         <div class="info-item">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                            <span>Lisboa, Portugal</span>
+                            <span>Porto, Portugal</span>
                         </div>
                     </div>
                 </div>
@@ -366,12 +366,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="#" class="brand" aria-label="J&F SILVA">
-                        <div class="brand-logo" aria-hidden="true">
-                            <img src="./logo/logo10.png" alt="Logo da empresa" />
-                        </div>
-                        <span data-i18n="brand" class="company-name-highlight">J&F SILVA</span>
-                    </a>
+                    <div class="brand-logo" aria-hidden="true">
+                        <img src="./logo/logo10.jpg" alt="Logo da empresa" />
+                    </div>
                     <small class="muted">© <span id="year"></span> <span data-i18n="footer.rights">Todos os direitos reservados.</span></small>
                 </div>
                 
@@ -389,14 +386,7 @@
                         <a href="#trabalhe-conosco">Recursos Humanos</a>
                     </div>
                 </div>
-
-                <div class="footer-details">
-                    <small class="muted" data-i18n="footer.languages">Idiomas: PT • FR • EN • JA</small>
-                    <small class="muted">NIF: 123 456 789</small>
-                    <small class="muted">Registada na Conservatória</small>
-                </div>
-            </div>
-        </div>
+            
     </footer>
 
     <div id="image-modal" class="image-modal" aria-label="Visualizar imagem em tela cheia">
@@ -404,11 +394,17 @@
         <img id="modal-image" src="" alt="Imagem ampliada" />
     </div>
 
-    <a href="https://wa.me/+32 471 89 56 22" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Abrir WhatsApp">
+    <a href="https://wa.me/+32 471 89 56 22" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Abrir WhatsApp" data-analytics-click="whatsapp_float" data-analytics-label="WhatsApp Flutuante">
         <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M19.1 17.6c-.3.1-.6.2-1 .1-.5-.1-1.1-.4-1.8-.9c-.6-.4-1.1-1-1.6-1.6c-.4-.5-.7-1.1-.9-1.6c-.2-.5-.2-.9-.1-1.2c.1-.3.3-.5.6-.7c.2-.2.5-.5.7-.8c.2-.3.3-.6.3-.9s-.1-.6-.3-.9c-.1-.3-.3-.5-.6-.7c-.2-.2-.5-.3-.8-.4c-.3-.1-.6-.1-.9 0c-.6.1-1.2.5-1.7 1.1c-.5.6-.8 1.3-.9 2c-.1.8 0 1.6.3 2.4c.3.8.7 1.6 1.3 2.3c.9 1.2 2 2.3 3.4 3.1c1 .6 2 .9 2.9 1.1c1 .2 1.9.1 2.7-.2c.7-.3 1.3-.7 1.8-1.2c.5-.5.8-1.1.9-1.7c.1-.6 0-1.2-.3-1.8c-.2-.3-.4-.6-.8-.7c-.3-.1-.7-.1-1 0c-.3.2-.6.4-.8.7c-.2.4-.5.8-.7 1.2c-.1.2-.3.3-.6.4z"/></svg>
     </a>
 
     <script src="index.js"></script>
     <script src="enhanced-ui.js"></script>
+
+    <!-- Firebase Analytics (GA4) -->
+    <script type="module" src="/scripts/firebase-analytics.js"></script>
+
+    <!-- Firebase RTDB Telemetry -->
+    <script type="module" src="/scripts/rtdb-telemetry.js"></script>
 </body>
 </html>

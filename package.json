@@ -1,0 +1,15 @@
+{
+  "name": "belgica",
+  "version": "1.0.0",
+  "description": "Site estático moderno e acessível com efeitos 3D sutis, glass cards e microinterações.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^12.1.0"
+  }
+}

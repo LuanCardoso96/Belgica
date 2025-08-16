@@ -41,7 +41,7 @@
   --radius-2xl: 24px;
   
   /* Container */
-  --container: 1200px;
+  --container: 14200px;
   
   /* Transições */
   --transition-fast: 0.15s ease;
@@ -107,8 +107,8 @@ body::before {
 
 .container {
   max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 24px;
+  margin:  auto;
+  padding: 0 14px;
 }
 
 /* ===== HEADER ===== */
@@ -169,54 +169,34 @@ body::before {
 }
 
 .brand-logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  box-shadow: var(--shadow-3d);
+  width: 102px;
+  height: 104px;
+  border-radius: 80%;
+  box-shadow: var(--shadow-lg);
   transition: all var(--transition-normal);
   overflow: hidden;
-  border: 3px solid rgba(255,255,255,0.2);
+  border: 3px solid var(--brand);
   position: relative;
 }
 
-.brand-logo::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--gradient-primary);
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-  z-index: 1;
-}
 
-.brand-logo:hover::before {
-  opacity: 0.1;
-}
 
 .brand-logo:hover {
-  transform: scale(1.15) rotate(5deg);
+  transform: scale(1.1);
+  border-color: var(--accent);
   box-shadow: var(--shadow-2xl);
-  border-color: rgba(255,255,255,0.4);
 }
 
 .brand-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
-  max-width: 48px;
-  max-height: 48px;
+  width: 102%;
+  height: 104%;
+  object-fit: cover;
+  border-radius: 80%;
 }
 
-/* Garantir que a logo10 tenha tamanho específico */
-.brand-logo img[src*="logo10"] {
-  width: 48px !important;
-  height: 48px !important;
-  max-width: 48px !important;
-  max-height: 48px !important;
+/* Logo responsiva e otimizada */
+.brand-logo img {
+  transition: all var(--transition-normal);
 }
 
 .mobile-menu-btn {
@@ -445,7 +425,7 @@ body::before {
 .controls-container {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .desktop-cta {
@@ -941,11 +921,37 @@ input:focus, textarea:focus, select:focus {
 .footer-brand {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.footer-brand .brand-logo {
+  width: 102px;
+  height: 104px;
+  border-radius: 80%;
+  overflow: hidden;
+  border: 3px solid var(--brand);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-lg);
+}
+
+.footer-brand .brand-logo img {
+  width: 102%;
+  height: 104%;
+  object-fit: cover;
+  border-radius: 80%;
+  transition: all var(--transition-normal);
+}
+
+.footer-brand .brand-logo:hover {
+  transform: scale(1.1);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-2xl);
 }
 
 .footer-brand .company-name-highlight {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   animation: footerCompanyName 4s ease-in-out infinite;
 }
 

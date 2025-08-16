@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Coleção de candidatos - apenas leitura para usuários autenticados, escrita livre
+    match /candidatos/{document} {
+      allow read: if request.auth != null;
+      allow create: if true; // Permite criação de candidatos via formulário
+      allow update, delete: if false; // Não permite edição/deleção
+    }
+    
+    // Coleção de curriculum - apenas leitura para usuários autenticados, escrita livre
+    match /curriculum/{document} {
+      allow read: if request.auth != null;
+      allow create: if true; // Permite criação de curriculum via formulário
+      allow update, delete: if false; // Não permite edição/deleção
+    }
+    
+    // Outras coleções - negar acesso por padrão
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
