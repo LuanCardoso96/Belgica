@@ -21,6 +21,8 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Base */
@@ -32,10 +34,17 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 /* Header e Navegação */
@@ -736,6 +745,178 @@ body.light-theme {
     }
 }
 
+/* ===== PREVENÇÃO DE OVERFLOW HORIZONTAL ===== */
+@media (max-width: 768px) {
+    /* Garantir que todos os elementos respeitem a largura da tela */
+    .main-header,
+    .contact-hero,
+    .contact-methods,
+    .contact-form-section,
+    .faq-section,
+    .main-footer {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    /* Ajustar navegação para mobile */
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .brand {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .brand-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .controls-container {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .desktop-cta {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .mobile-cta {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Ajustar hero para mobile */
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        padding: 0 20px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+    
+    .stat-item {
+        padding: 15px;
+        min-width: 200px;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Ajustar métodos de contato para mobile */
+    .methods-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+    
+    .method-card {
+        padding: 30px 20px;
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    
+    .method-link {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 24px;
+        font-size: 1rem;
+        margin: 0 auto;
+    }
+    
+    /* Ajustar formulário para mobile */
+    .contact-form {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .btn-submit {
+        width: 100%;
+        max-width: 100%;
+        margin: 20px 0 0 0;
+    }
+    
+    /* Ajustar FAQ para mobile */
+    .faq-grid {
+        padding: 0 20px;
+    }
+    
+    .faq-item {
+        margin-bottom: 15px;
+    }
+    
+    .faq-question {
+        padding: 20px;
+    }
+    
+    .faq-answer {
+        padding: 0 20px 20px;
+    }
+    
+    /* Ajustar footer para mobile */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .footer-column {
+        text-align: center;
+    }
+    
+    /* Ajustar botão WhatsApp para mobile */
+    .whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-btn a {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Ajustar botão de idioma para mobile */
+    .language-toggle {
+        top: 15px;
+        right: 15px;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 768px) {
     .contact-hero {
         padding: 80px 0 60px;
@@ -1022,11 +1203,11 @@ body.light-theme {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
     .stat-number {
@@ -1039,6 +1220,40 @@ body.light-theme {
     
     .contact-form {
         padding: 25px 15px;
+    }
+    
+    /* Ajustes para telas muito pequenas */
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-title,
+    .hero-subtitle {
+        padding: 0 15px;
+    }
+    
+    .hero-stats {
+        padding: 0 15px;
+    }
+    
+    .methods-grid {
+        padding: 0 15px;
+    }
+    
+    .faq-grid {
+        padding: 0 15px;
+    }
+    
+    .btn-submit {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .language-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
 }
 
